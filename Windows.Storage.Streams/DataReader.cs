@@ -4,18 +4,30 @@
 //
 
 using System;
+using System.Text;
 
 namespace Windows.Storage.Streams
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public sealed class DataReader : IDisposable, IDataReader
     {
+
+        private byte[] bufferData;
+        private Buffer buffer;
+        private int currentPosition;
+        private IInputStream stream;
+
+
         /// <summary>
         /// Creates and initializes a new instance of the data reader.
         /// </summary>
         /// <param name="inputStream">The input stream.</param>
         public DataReader(IInputStream inputStream)
         {
-            throw new NotImplementedException();
+            stream = inputStream ?? throw new ArgumentNullException("inputStream");
+            ResetBufferData();
         }
 
         /// <summary>
@@ -78,7 +90,9 @@ namespace Windows.Storage.Streams
         /// <returns>The detached stream.</returns>
         public IInputStream DetachStream()
         {
-            throw new NotImplementedException();
+            IInputStream inputStream = stream;
+            stream = null;
+            return inputStream;
         }
 
         /// <summary>
@@ -107,8 +121,53 @@ namespace Windows.Storage.Streams
         //public DataReaderLoadOperation LoadAsync(UInt32 count)
         public uint Load(UInt32 count)
         {
+            if (stream == null)
+            {
+                throw new InvalidOperationException();
+            }
+            if (bufferData.Length < count)
+            {
+                int size = 128;
+                while (size < (count + UnconsumedBufferLength))
+                {
+                    size *= 2;
+                }
+                byte[] byteArray = new byte[size];
+                Array.Copy(bufferData, currentPosition, byteArray, 0, (int)UnconsumedBufferLength);
+                currentPosition = 0;
+                bufferData = byteArray;
+            }
+            IBuffer buffer = stream.Read(SyncBuffer(), count, InputStreamOptions);
+            return (uint)bufferData.Length;
+        }
+
+
+
+        private void ResetBufferData()
+        {
+            bufferData = new byte[128];
+            currentPosition = 0;
+            SyncBuffer();
+        }
+
+        private Buffer SyncBuffer()
+        {
             throw new NotImplementedException();
         }
+
+        private int IncreasePosition(int count)
+        {
+            if (UnconsumedBufferLength < count)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            int newPosition = currentPosition;
+            currentPosition += count;
+            return newPosition;
+        }
+
+
+
 
         /// <summary>
         /// Reads a Boolean value from the input stream.
@@ -116,7 +175,7 @@ namespace Windows.Storage.Streams
         /// <returns>The value.</returns>
         public bool ReadBoolean()
         {
-            throw new NotImplementedException();
+            return bufferData[IncreasePosition(1)] > 0;
         }
 
         /// <summary>
@@ -126,6 +185,10 @@ namespace Windows.Storage.Streams
         /// <returns>The buffer.</returns>
         public IBuffer ReadBuffer(UInt32 length)
         {
+            //byte[] byteArray = new byte[length];
+            //ReadBytes(byteArray);
+            //return new Buffer(byteArray, 0, length);
+
             throw new NotImplementedException();
         }
 
@@ -135,8 +198,8 @@ namespace Windows.Storage.Streams
         /// <returns>The value.</returns>
         public byte ReadByte()
         {
-            throw new NotImplementedException();
-        }
+            return bufferData[IncreasePosition(1)];
+    }
 
         /// <summary>
         /// Reads an array of byte values from the input stream.
@@ -144,16 +207,21 @@ namespace Windows.Storage.Streams
         /// <param name="value">The array of values.</param>
         public void ReadBytes(Byte[] value)
         {
-            throw new NotImplementedException();
+            if (value == null)
+            {
+                throw new ArgumentNullException("value");
+            }
+
+            Array.Copy(bufferData, IncreasePosition(value.Length), value, 0, value.Length);
         }
 
         /// <summary>
         /// Reads a date and time value from the input stream.
         /// </summary>
         /// <returns>The value.</returns>
-        public DateTimeOffset ReadDateTime()
+        public DateTime ReadDateTime()
         {
-            throw new NotImplementedException();
+            return new DateTime(ReadInt64());
         }
 
         /// <summary>
@@ -162,7 +230,7 @@ namespace Windows.Storage.Streams
         /// <returns>The value.</returns>
         public double ReadDouble()
         {
-            throw new NotImplementedException();
+            return BitConverter.ToDouble(bufferData, IncreasePosition(8));
         }
 
         /// <summary>
@@ -171,7 +239,9 @@ namespace Windows.Storage.Streams
         /// <returns>The value.</returns>
         public Guid ReadGuid()
         {
-            throw new NotImplementedException();
+            byte[] byteArray = new byte[16];
+            ReadBytes(byteArray);
+            return new Guid(byteArray);
         }
 
         /// <summary>
@@ -180,7 +250,7 @@ namespace Windows.Storage.Streams
         /// <returns>The value.</returns>
         public short ReadInt16()
         {
-            throw new NotImplementedException();
+            return BitConverter.ToInt16(bufferData, IncreasePosition(2));
         }
 
         /// <summary>
@@ -189,8 +259,8 @@ namespace Windows.Storage.Streams
         /// <returns>The value.</returns>
         public int ReadInt32()
         {
-            throw new NotImplementedException();
-        }
+            return BitConverter.ToInt32(bufferData, IncreasePosition(4));
+    }
 
         /// <summary>
         /// Reads a 64-bit integer value from the input stream.
@@ -198,8 +268,8 @@ namespace Windows.Storage.Streams
         /// <returns>The value.</returns>
         public long ReadInt64()
         {
-            throw new NotImplementedException();
-        }
+            return BitConverter.ToInt64(bufferData, IncreasePosition(8));
+    }
 
         /// <summary>
         /// Reads a floating-point value from the input stream.
@@ -207,7 +277,7 @@ namespace Windows.Storage.Streams
         /// <returns>The value.</returns>
         public float ReadSingle()
         {
-            throw new NotImplementedException();
+            return BitConverter.ToSingle(bufferData, IncreasePosition(4));
         }
 
         /// <summary>
@@ -217,7 +287,7 @@ namespace Windows.Storage.Streams
         /// <returns>The value.</returns>
         public string ReadString(UInt32 codeUnitCount)
         {
-            throw new NotImplementedException();
+            return new string(Encoding.UTF8.GetChars(bufferData, IncreasePosition((int)codeUnitCount), (int)codeUnitCount));
         }
 
         /// <summary>
@@ -226,8 +296,8 @@ namespace Windows.Storage.Streams
         /// <returns>The value.</returns>
         public TimeSpan ReadTimeSpan()
         {
-            throw new NotImplementedException();
-        }
+            return new TimeSpan(ReadInt64());
+    }
 
         /// <summary>
         /// Reads a 16-bit unsigned integer from the input stream.
@@ -235,25 +305,25 @@ namespace Windows.Storage.Streams
         /// <returns>The value.</returns>
         public ushort ReadUInt16()
         {
-            throw new NotImplementedException();
+            return BitConverter.ToUInt16(bufferData, IncreasePosition(2));
         }
 
         /// <summary>
         /// Reads a 32-bit unsigned integer from the input stream.
         /// </summary>
         /// <returns>The value.</returns>
-        public ushort ReadUInt32()
+        public uint ReadUInt32()
         {
-            throw new NotImplementedException();
+            return BitConverter.ToUInt32(bufferData, IncreasePosition(4));
         }
 
         /// <summary>
         /// Reads a 64-bit unsigned integer from the input stream.
         /// </summary>
         /// <returns>The value.</returns>
-        public ushort ReadUInt64()
+        public ulong ReadUInt64()
         {
-            throw new NotImplementedException();
+            return BitConverter.ToUInt64(bufferData, IncreasePosition(8));
         }
     }
 }

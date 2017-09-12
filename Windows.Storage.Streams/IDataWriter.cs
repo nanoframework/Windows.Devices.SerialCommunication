@@ -104,7 +104,7 @@ namespace Windows.Storage.Streams
         /// Writes a date and time value to the output stream.
         /// </summary>
         /// <param name="value">The value to write.</param>
-        void WriteDateTime(DateTimeOffset value);
+        void WriteDateTime(DateTime value);
 
         /// <summary>
         /// Writes a floating-point value to the output stream.

@@ -10,6 +10,7 @@ namespace Windows.Storage.Streams
     /// </summary>
     public enum UnicodeEncoding
     {
+        /*
         /// <summary>
         /// The encoding is UTF-16, with the most significant byte first in the two eight-bit bytes.
         /// </summary>
@@ -18,6 +19,7 @@ namespace Windows.Storage.Streams
         /// The encoding is UTF-16, with the least significant byte first in the two eight-bit bytes.
         /// </summary>
         Utf16LE,
+        */
         /// <summary>
         /// The encoding is UTF-8.
         /// </summary>

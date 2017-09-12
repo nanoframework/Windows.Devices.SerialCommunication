@@ -207,8 +207,7 @@ namespace Windows.Devices.SerialCommunication
         /// </summary>
         /// <param name="deviceId">The device instance path of the device. To obtain that value, get the DeviceInformation.Id property value.</param>
         /// <returns>
-        /// IAsyncOperation<SerialDevice> 
-        /// Returns an IAsyncOperation(SerialDevice) object that returns the results of the operation.
+        /// Returns an SerialDevice object that returns the results of the operation.
         /// </returns>
         public static SerialDevice FromId(String deviceId)
         {

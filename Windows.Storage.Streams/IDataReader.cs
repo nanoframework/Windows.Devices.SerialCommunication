@@ -93,7 +93,7 @@ namespace Windows.Storage.Streams
         /// Reads a date and time value from the input stream.
         /// </summary>
         /// <returns>The value.</returns>
-        DateTimeOffset ReadDateTime();
+        DateTime ReadDateTime();
 
         /// <summary>
         /// Reads a floating-point value from the input stream.
@@ -154,13 +154,13 @@ namespace Windows.Storage.Streams
         /// Reads a 32-bit unsigned integer from the input stream.
         /// </summary>
         /// <returns>The value.</returns>
-        ushort ReadUInt32();
+        uint ReadUInt32();
 
         /// <summary>
         /// Reads a 64-bit unsigned integer from the input stream.
         /// </summary>
         /// <returns>The value.</returns>
-        ushort ReadUInt64();
+        ulong ReadUInt64();
 
     }
 }

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Windows.Storage.Streams", "Windows.Storage.Streams.nfproj", "{05895B03-993A-45C0-A2C7-E347B3023DD0}"
+EndProject
+Project("{5DD5E4FA-CB73-4610-85AB-557B54E96AA9}") = "Nuget.Windows.Storage.Streams", "Nuget.Windows.Storage.Streams\Nuget.Windows.Storage.Streams.nuproj", "{43CD93BB-C6C4-4F8E-B1ED-406469D9DB42}"
+EndProject
+Project("{5DD5E4FA-CB73-4610-85AB-557B54E96AA9}") = "Nuget.Windows.Storage.Streams.DELIVERABLES", "Nuget.Windows.Storage.Streams.DELIVERABLES\Nuget.Windows.Storage.Streams.DELIVERABLES.nuproj", "{5A4C97FD-F7EA-4A59-8D7F-42EBC1A6D449}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05895B03-993A-45C0-A2C7-E347B3023DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05895B03-993A-45C0-A2C7-E347B3023DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05895B03-993A-45C0-A2C7-E347B3023DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05895B03-993A-45C0-A2C7-E347B3023DD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43CD93BB-C6C4-4F8E-B1ED-406469D9DB42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43CD93BB-C6C4-4F8E-B1ED-406469D9DB42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43CD93BB-C6C4-4F8E-B1ED-406469D9DB42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43CD93BB-C6C4-4F8E-B1ED-406469D9DB42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A4C97FD-F7EA-4A59-8D7F-42EBC1A6D449}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A4C97FD-F7EA-4A59-8D7F-42EBC1A6D449}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A4C97FD-F7EA-4A59-8D7F-42EBC1A6D449}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A4C97FD-F7EA-4A59-8D7F-42EBC1A6D449}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C6B44D9-E58B-4458-91E9-2EF36105D87C}
+	EndGlobalSection
+EndGlobal

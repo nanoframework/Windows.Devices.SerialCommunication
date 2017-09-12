@@ -4,6 +4,7 @@
 //
 
 using System;
+using System.Text;
 
 namespace Windows.Storage.Streams
 {
@@ -108,7 +109,12 @@ namespace Windows.Storage.Streams
         /// <returns>The size of the string, in bytes.</returns>
         public uint MeasureString(String value)
         {
-            throw new NotImplementedException();
+            Encoding encoding = Encoding.UTF8;
+            if (value == null)
+            {
+                throw new ArgumentNullException("value");
+            }
+            return (uint)encoding.GetBytes(value).Length;
         }
 
         /// <summary>
@@ -127,7 +133,7 @@ namespace Windows.Storage.Streams
         /// <param name="value">The value to write.</param>
         public void WriteBoolean(Boolean value)
         {
-            throw new NotImplementedException();
+            WriteBytes(BitConverter.GetBytes(value));
         }
 
         /// <summary>
@@ -172,9 +178,9 @@ namespace Windows.Storage.Streams
         /// Writes a date and time value to the output stream.
         /// </summary>
         /// <param name="value">The value to write.</param>
-        public void WriteDateTime(DateTimeOffset value)
+        public void WriteDateTime(DateTime value)
         {
-            throw new NotImplementedException();
+            WriteInt64(value.Ticks);
         }
 
         /// <summary>
@@ -183,7 +189,7 @@ namespace Windows.Storage.Streams
         /// <param name="value">The value to write.</param>
         public void WriteDouble(Double value)
         {
-            throw new NotImplementedException();
+            WriteBytes(BitConverter.GetBytes(value));
         }
 
         /// <summary>
@@ -192,7 +198,7 @@ namespace Windows.Storage.Streams
         /// <param name="value">The value to write.</param>
         public void WriteGuid(Guid value)
         {
-            throw new NotImplementedException();
+            WriteBytes(value.ToByteArray());
         }
 
         /// <summary>
@@ -201,7 +207,7 @@ namespace Windows.Storage.Streams
         /// <param name="value">The value to write.</param>
         public void WriteInt16(Int16 value)
         {
-            throw new NotImplementedException();
+            WriteBytes(BitConverter.GetBytes(value));
         }
 
         /// <summary>
@@ -210,7 +216,7 @@ namespace Windows.Storage.Streams
         /// <param name="value">The value to write.</param>
         public void WriteInt32(Int32 value)
         {
-            throw new NotImplementedException();
+            WriteBytes(BitConverter.GetBytes(value));
         }
 
         /// <summary>
@@ -219,7 +225,7 @@ namespace Windows.Storage.Streams
         /// <param name="value">The value to write.</param>
         public void WriteInt64(Int64 value)
         {
-            throw new NotImplementedException();
+            WriteBytes(BitConverter.GetBytes(value));
         }
 
         /// <summary>
@@ -228,7 +234,7 @@ namespace Windows.Storage.Streams
         /// <param name="value">The value to write.</param>
         public void WriteSingle(Single value)
         {
-            throw new NotImplementedException();
+            WriteBytes(BitConverter.GetBytes(value));
         }
 
         /// <summary>
@@ -238,7 +244,13 @@ namespace Windows.Storage.Streams
         /// <returns>The length of the string.</returns>
         public uint WriteString(String value)
         {
-            throw new NotImplementedException();
+            if (value == null)
+            {
+                throw new ArgumentNullException("value");
+            }
+            byte[] strBytes = Encoding.UTF8.GetBytes(value);
+            WriteBytes(strBytes);
+            return (uint)strBytes.Length;
         }
 
         /// <summary>
@@ -247,7 +259,7 @@ namespace Windows.Storage.Streams
         /// <param name="value">The value to write.</param>
         public void WriteTimeSpan(TimeSpan value)
         {
-            throw new NotImplementedException();
+            WriteInt64(value.Ticks);
         }
 
         /// <summary>
@@ -256,7 +268,7 @@ namespace Windows.Storage.Streams
         /// <param name="value">The value to write.</param>
         public void WriteUInt16(UInt16 value)
         {
-            throw new NotImplementedException();
+            WriteBytes(BitConverter.GetBytes(value));
         }
 
         /// <summary>
@@ -265,7 +277,7 @@ namespace Windows.Storage.Streams
         /// <param name="value">The value to write.</param>
         public void WriteUInt32(UInt32 value)
         {
-            throw new NotImplementedException();
+            WriteBytes(BitConverter.GetBytes(value));
         }
 
         /// <summary>
@@ -274,7 +286,7 @@ namespace Windows.Storage.Streams
         /// <param name="value">The value to write.</param>
         public void WriteUInt64(UInt64 value)
         {
-            throw new NotImplementedException();
+            WriteBytes(BitConverter.GetBytes(value));
         }
     }
 }
