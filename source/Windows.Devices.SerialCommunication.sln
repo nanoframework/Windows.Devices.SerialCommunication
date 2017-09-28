@@ -9,6 +9,11 @@ Project("{5DD5E4FA-CB73-4610-85AB-557B54E96AA9}") = "Nuget.Windows.Devices.Seria
 EndProject
 Project("{5DD5E4FA-CB73-4610-85AB-557B54E96AA9}") = "Nuget.Windows.Devices.SerialCommunication.DELIVERABLES", "Nuget.Windows.Devices.SerialCommunication.DELIVERABLES\Nuget.Windows.Devices.SerialCommunication.DELIVERABLES.nuproj", "{A9A49A89-69C3-4C61-B60F-73DF88664602}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A3EEA097-607D-4297-8D56-8193D770F5F4}"
+	ProjectSection(SolutionItems) = preProject
+		packages.config = packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
