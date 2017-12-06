@@ -32,12 +32,12 @@
   </ItemGroup>
   <ItemGroup>
     <Dependency Include="nanoFramework.CoreLibrary">
-      <Version>[1.0.0-preview028]</Version>
+      <Version>[1.0.0-preview038]</Version>
     </Dependency>
   </ItemGroup>
   <ItemGroup>
     <Dependency Include="nanoFramework.Runtime.Events">
-      <Version>[1.0.0-preview017]</Version>
+      <Version>[1.0.0-preview165]</Version>
     </Dependency>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -49,7 +49,7 @@
   <Import Project="$(NuProjPath)\NuProj.props" Condition="Exists('$(NuProjPath)\NuProj.props')" />
   <PropertyGroup Label="Configuration">
     <Id>nanoFramework.Windows.Devices.SerialCommunication</Id>
-    <Version>1.0.0-preview001</Version>
+    <Version>$(GitVersion_NuGetVersionV2)</Version>
     <Title>nanoFramework.Windows.Devices.SerialCommunication</Title>
     <Authors>nanoFramework project contributors</Authors>
     <Owners>nanoFramework project contributors</Owners>
