@@ -11,14 +11,21 @@ namespace Windows.Devices.SerialCommunication
     /// <remarks>
     /// ErrorReceivedEventArgs is used to determine the type of error condition. When error occurs on the port, the previously registered ErrorReceived event handler is invoked. That event handler's parameter is a ErrorReceivedEventArgs object. After the event handler is invoked, you can determine the error condition by using the Error property.
     /// </remarks>
-    public sealed class ErrorReceivedEventArgs : IErrorReceivedEventArgs
+    public sealed class ErrorReceivedEventArgs
     {
+        SerialError _error;
+
+        internal ErrorReceivedEventArgs(SerialError error)
+        {
+            _error = error;
+        }
+
         /// <summary>
         /// Gets the character type received that caused the event on the serial port.
         /// </summary>
         /// <value>
         /// One of the values defined in the SerialError enumeration.
         /// </value>
-        public SerialError Error { get; }
+        public SerialError Error { get { return _error; } }
     }
 }

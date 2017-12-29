@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FF286327-C783-4F7A-AB73-9BCBAD0D4460}") = "Nuget.Windows.Devices.SerialCommunication", "Nuget.Windows.Devices.SerialCommunication\Nuget.Windows.Devices.SerialCommunication.nuproj", "{F7151EC8-F9F2-47F9-BA93-E84580E6E3EE}"
+EndProject
+Project("{FF286327-C783-4F7A-AB73-9BCBAD0D4460}") = "Nuget.Windows.Devices.SerialCommunication.DELIVERABLES", "Nuget.Windows.Devices.SerialCommunication.DELIVERABLES\Nuget.Windows.Devices.SerialCommunication.DELIVERABLES.nuproj", "{A9A49A89-69C3-4C61-B60F-73DF88664602}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7151EC8-F9F2-47F9-BA93-E84580E6E3EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7151EC8-F9F2-47F9-BA93-E84580E6E3EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7151EC8-F9F2-47F9-BA93-E84580E6E3EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7151EC8-F9F2-47F9-BA93-E84580E6E3EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9A49A89-69C3-4C61-B60F-73DF88664602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9A49A89-69C3-4C61-B60F-73DF88664602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9A49A89-69C3-4C61-B60F-73DF88664602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9A49A89-69C3-4C61-B60F-73DF88664602}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ACA0B0A7-A547-46C8-A3D8-4DA94A464DF5}
+	EndGlobalSection
+EndGlobal

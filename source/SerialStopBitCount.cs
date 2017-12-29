@@ -13,7 +13,7 @@ namespace Windows.Devices.SerialCommunication
         /// <summary>
         /// One stop bit is used.
         /// </summary>
-        One,
+        One = 0,
         /// <summary>
         /// 1.5 stop bits are used.
         /// </summary>

@@ -3,10 +3,12 @@
 // See LICENSE file in the project root for full license information.
 //
 
+using nanoFramework.Runtime.Events;
+
 namespace Windows.Devices.SerialCommunication
 {
-    internal interface IPinChangedEventArgs
+    internal class SerialDeviceErrorEvent : BaseEvent
     {
-        SerialPinChange PinChange { get; }
+
     }
 }

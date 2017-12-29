@@ -11,14 +11,16 @@ namespace Windows.Devices.SerialCommunication
     /// <remarks>
     /// At times, the state of a signal line can change on the serial port. For example, when the break state is enabled on the serial port causing data transmission to stop. The event is reported by invoking the app-implemented PinChanged event handler. That event handler's parameter is a PinChangedEventArgs object. Inspect the PinChange property to determine the type of signal line. Those values are defined in the SerialPinChange enumeration.
     /// </remarks>
-    public sealed class PinChangedEventArgs : IPinChangedEventArgs
+    public sealed class PinChangedEventArgs
     {
+        private SerialPinChange _pinChange;
+
         /// <summary>
         /// Gets the type of signal change that caused the event on the serial port.
         /// </summary>
         /// <value>
         /// One of the values defined in SerialPinChange enumeration.
         /// </value>
-        public SerialPinChange PinChange { get; }
+        public SerialPinChange PinChange { get { return _pinChange; } }
     }
 }

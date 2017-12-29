@@ -4,7 +4,7 @@
 //
 
 using System;
-using Windows.Foundation;
+using System.Runtime.CompilerServices;
 using Windows.Storage.Streams;
 
 namespace Windows.Devices.SerialCommunication
@@ -12,8 +12,59 @@ namespace Windows.Devices.SerialCommunication
     /// <summary>
     /// Represents a serial port. The object provides methods and properties that an app can use to find the port (in the system).
     /// </summary>
-    public sealed class SerialDevice : ISerialDevice, IDisposable
+    public sealed class SerialDevice : IDisposable
     {
+        //private ErrorReceivedEventHandler _callbacksErrorEvent = null;
+        //private NativeEventDispatcher _evtErrorEvent = null;
+
+        // this is used as the lock object 
+        // a lock is required because multiple threads can access the SerialDevice
+        private object _syncLock = new object();
+        
+        // flag to signal an open serial port
+        private bool _opened;
+
+        private readonly string _deviceId;
+        private readonly int _portIndex;
+        private readonly IOutputStream _outputStream;
+        private readonly IInputStream _inputStream;
+
+        private TimeSpan _readTimeout = TimeSpan.Zero;
+        private TimeSpan _writeTimeout = TimeSpan.Zero;
+        private uint _baudRate = 9600;
+        private ushort _dataBits = 8;
+        private SerialHandshake _handshake = SerialHandshake.None;
+        private SerialParity _parity = SerialParity.None;
+        private SerialStopBitCount _stopBits = SerialStopBitCount.One;
+        private uint _bytesReceived;
+
+        internal SerialDevice(string deviceId)
+        {
+            // check if this device is already opened
+            if (!SerialDeviceController.s_deviceCollection.Contains(deviceId))
+            {
+                _deviceId = deviceId;
+
+                // the UART name is an ASCII string with the COM port name in format 'COMn'
+                // need to grab 'n' from the string and convert that to the integer value from the ASCII code (do this by subtracting 48 from the char value)
+                _portIndex = (deviceId[3] - 48);
+
+                NativeInit();
+
+                //_evtErrorEvent = new NativeEventDispatcher("SerialPortErrorEvent", (ulong)_portIndex);
+
+                _outputStream = new SerialDeviceOutputStream(this);
+
+                // add serial device to collection
+                SerialDeviceController.s_deviceCollection.Add(deviceId, this);
+            }
+            else
+            {
+                // this device already exists throw an exception
+                throw new ArgumentException();
+            }
+        }
+
         /// <summary>
         /// Gets or sets the baud rate.
         /// </summary>
@@ -21,20 +72,23 @@ namespace Windows.Devices.SerialCommunication
         /// The baud rate of the serial port.
         /// </value>
         /// <remarks>
-        /// The property is set on the SerialDevice object that represents the serial port. The baud rate must be supported by the serial port. To see the possible values, in Device Manager, open the Port Settings tab of the COM port.
+        /// The property is set on the <see cref="SerialDevice"/> object that represents the serial port. The baud rate must be supported by the serial port.
         /// </remarks>
-        public uint BaudRate { get; set; }
+        public uint BaudRate
+        {
+            get
+            {
+                return _baudRate;
+            }
 
-        /// <summary>
-        /// Gets or sets the break signal state.
-        /// </summary>
-        /// <value>
-        /// Toggles the TX line to enable or disable data transmission.
-        /// </value>
-        /// <remarks>
-        /// In serial communication, the break signal state is used to toggle the TX line. To suspend data transmission, set the property value to true. In that state, you cannot write to the serial port. To resume transmission, set to false.
-        /// </remarks>
-        public bool BreakSignalState { get; set; }
+            set
+            {
+                _baudRate = value;
+
+                // need to reconfigure device
+                NativeInit();
+            }
+        }
 
         /// <summary>
         /// Represents the number of bytes received by the last read operation of the input stream.
@@ -42,23 +96,8 @@ namespace Windows.Devices.SerialCommunication
         /// <value>
         /// The number of bytes received by the last read operation of the input stream.
         /// </value>
-        public uint BytesReceived { get; }
+        public uint BytesReceived { get { return _bytesReceived; } }
 
-        /// <summary>
-        /// Gets the state of the Carrier Detect (CD) line.
-        /// </summary>
-        /// <value>
-        /// Detects the state of Carrier Detect line. If the line is detected, value is true; otherwise, false.
-        /// </value>
-        public bool CarrierDetectState { get; }
-
-        /// <summary>
-        /// Gets the state of the Clear-to-Send (CTS) line.
-        /// </summary>
-        /// <value>
-        /// Detects the state of Clear-to-Send line. If the line is detected, value is true; otherwise, false.
-        /// </value>
-        public bool ClearToSendState { get; }
 
         /// <summary>
         /// The number of data bits in each character value that is transmitted or received, and does not include parity bits or stop bits.
@@ -69,15 +108,21 @@ namespace Windows.Devices.SerialCommunication
         /// <remarks>
         /// DataBits corresponds to the WordLength member of the SERIAL_LINE_CONTROL structure.
         /// </remarks>
-        public ushort DataBits { get; set; }
+        public ushort DataBits
+        {
+            get
+            {
+                return _dataBits;
+            }
 
-        /// <summary>
-        /// Gets the state of the Data Set Ready (DSR) signal.
-        /// </summary>
-        /// <value>
-        /// Indicates whether DSR has been sent to the serial port. If the signal was sent, value is true; otherwise, false.
-        /// </value>
-        public bool DataSetReadyState { get; }
+            set
+            {
+                _dataBits = value;
+
+                // need to reconfigure device
+                NativeInit();
+            }
+        }
 
         /// <summary>
         /// Gets or sets the handshaking protocol for flow control.
@@ -85,7 +130,21 @@ namespace Windows.Devices.SerialCommunication
         /// <value>
         /// One of the values defined in SerialHandshake enumeration.
         /// </value>
-        public SerialHandshake Handshake { get; set; }
+        public SerialHandshake Handshake
+        {
+            get
+            {
+                return _handshake;
+            }
+
+            set
+            {
+                _handshake = value;
+
+                // need to reconfigure device
+                NativeInit();
+            }
+        }
 
         /// <summary>
         /// Input stream that contains the data received on the serial port.
@@ -94,33 +153,17 @@ namespace Windows.Devices.SerialCommunication
         /// Input stream that contains the data received.
         /// </value>
         /// <remarks>
-        /// To access data received on the port, get the input stream from SerialDevice object, and then use the DataReader to read data.
+        /// To access data received on the port, get the input stream from <see cref="SerialDevice"/> object, and then use the DataReader to read data.
         /// </remarks>
-        public IInputStream InputStream { get; }
+        public IInputStream InputStream { get { return _inputStream; } }
 
         /// <summary>
-        /// Gets or sets a value that enables the Data Terminal Ready (DTR) signal.
-        /// </summary>
-        /// <value>
-        /// Enables or disables the Data Terminal Ready (DTR) signal. true enables DTR; Otherwise, false.
-        /// </value>
-        public bool IsDataTerminalReadyEnabled { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value that enables the Request to Send (RTS) signal.
-        /// </summary>
-        /// <value>
-        /// Enables or disables the Request to Send (RTS) signal. true enables DTR; Otherwise, false.
-        /// </value>
-        public bool IsRequestToSendEnabled { get; set; }
-
-        /// <summary>
-        /// Enables or disables the Request to Send (RTS) signal. true enables DTR; Otherwise, false.
+        /// Gets an output stream to which the app can write data to transmit through the serial port.
         /// </summary>
         /// <remarks>
-        /// To write data, first get the output stream from the SerialDevice object by using OutputStream property and then use the DataWriter object to write the actual buffer.
+        /// To write data, first get the output stream from the <see cref="SerialDevice"/> object by using <see cref="OutputStream"/> property and then use the DataWriter object to write the actual buffer.
         /// </remarks>
-        public IOutputStream OutputStream { get; }
+        public IOutputStream OutputStream { get { return _outputStream; } }
 
         /// <summary>
         /// Gets or sets the parity bit for error-checking.
@@ -132,7 +175,21 @@ namespace Windows.Devices.SerialCommunication
         /// In serial communication, the parity bit is used as an error-checking procedure. In data transmission that uses parity checking, the bit format is 7 data bits-x-1 stop bit, where x is the parity bit. That bit indicates whether the number of 1s in the data byte is even or odd. The parity bit can be E (even), O (odd), M (mark), or S (space). Those values are defined in the SerialParity enumeration.
         /// For example, if the format is 7-E-1 and the data bits are 0001000, the parity bit is set to 1 to make sure there are even number of 1s.
         /// </remarks>
-        public SerialParity Parity { get; set; }
+        public SerialParity Parity
+        {
+            get
+            {
+                return _parity;
+            }
+
+            set
+            {
+                _parity = value;
+
+                // need to reconfigure device
+                NativeInit();
+            }
+        }
 
         /// <summary>
         /// Gets the port name for serial communications.
@@ -140,7 +197,19 @@ namespace Windows.Devices.SerialCommunication
         /// <value>
         /// The communication port name. For example "COM1".
         /// </value>
-        public string PortName { get; }
+        public string PortName
+        {
+            get
+            {
+                lock (_syncLock)
+                {
+                    // check if device has been disposed
+                    if (!_disposedValue) { return _deviceId; }
+
+                    throw new ObjectDisposedException();
+                }
+            }
+        }
 
         /// <summary>
         /// Gets or sets the time-out value for a read operation.
@@ -148,7 +217,18 @@ namespace Windows.Devices.SerialCommunication
         /// <value>
         /// The span of time before a time-out occurs when a read operation does not finish.
         /// </value>
-        public TimeSpan ReadTimeout { get; set; }
+        public TimeSpan ReadTimeout
+        {
+            get
+            {
+                return _readTimeout;
+            }
+
+            set
+            {
+                _readTimeout = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the standard number of stop bits per byte.
@@ -159,23 +239,21 @@ namespace Windows.Devices.SerialCommunication
         /// <remarks>
         /// In serial communication, a transmission begins with a start bit, followed by 8 bits of data, and ends with a stop bit. The purpose of the stop bit is to separate each unit of data or to indicate that no data is available for transmission.
         /// </remarks>
-        public SerialStopBitCount StopBits { get; set; }
+        public SerialStopBitCount StopBits
+        {
+            get
+            {
+                return _stopBits;
+            }
 
-        /// <summary>
-        /// Gets the idProduct field of the USB device descriptor. This value indicates the device-specific product identifier and is assigned by the manufacturer.
-        /// </summary>
-        /// <value>
-        /// The device-defined product identifier.
-        /// </value>
-        public ushort UsbProductId { get; }
+            set
+            {
+                _stopBits = value;
 
-        /// <summary>
-        /// Gets the idVendor field of the USB device descriptor. The value indicates the vendor identifier for the device as assigned by the USB specification committee.
-        /// </summary>
-        /// <value>
-        /// The vendor identifier for the device as assigned by the USB specification committee.
-        /// </value>
-        public ushort UsbVendorId { get; }
+                // need to reconfigure device
+                NativeInit();
+            }
+        }
 
         /// <summary>
         /// Gets or sets the time-out value for a write operation.
@@ -183,76 +261,173 @@ namespace Windows.Devices.SerialCommunication
         /// <value>
         /// The span of time before a time-out occurs when a write operation does not finish.
         /// </value>
-        public TimeSpan WriteTimeout { get; set; }
-
-        /// <summary>
-        /// Releases the reference to the SerialDevice object that was previously obtained by calling FromIdAsync.
-        /// </summary>
-        public void Close()
+        public TimeSpan WriteTimeout
         {
-            //This member is not implemented in C#
-            throw new NotImplementedException();
+            get
+            {
+                return _writeTimeout;
+            }
+
+            set
+            {
+                _writeTimeout = value;
+            }
         }
 
         /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        /// </summary>
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Starts an asynchronous operation that creates a SerialDevice object.
+        /// Creates a <see cref="SerialDevice"/> object.
         /// </summary>
         /// <param name="deviceId">The device instance path of the device. To obtain that value, get the DeviceInformation.Id property value.</param>
         /// <returns>
-        /// Returns an SerialDevice object that returns the results of the operation.
+        /// Returns an <see cref="SerialDevice"/> object.
         /// </returns>
+        /// <remarks>This method is specific to nanoFramework. The equivalent method in the UWP API is: FromIdAsync.</remarks>
         public static SerialDevice FromId(String deviceId)
         {
-            throw new NotImplementedException();
+            return new SerialDevice(deviceId);
         }
 
         /// <summary>
-        /// Gets an Advanced Query Syntax (AQS) string that the app can pass to DeviceInformation.FindAllAsync in order to find all serial devices on the system.
+        /// Gets all the available Serial devices available on the system.
         /// </summary>
         /// <returns>
-        /// String formatted as an AQS query.
+        /// String containing all the serial devices available in the system.
         /// </returns>
-        public static string GetDeviceSelector()
+        /// /// <remarks>This method is specific to nanoFramework. The equivalent method in the UWP API returns an Advanced Query Syntax (AQS) string.</remarks>
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        public static extern string GetDeviceSelector();
+
+
+        #region IDisposable Support
+
+        private bool _disposedValue;
+
+        private void Dispose(bool disposing)
         {
-            throw new NotImplementedException();
+            if (!_disposedValue)
+            {
+                if (disposing)
+                {
+                    //if (_callbacksErrorEvent != null)
+                    //{
+                    //    _evtErrorEvent.OnInterrupt -= new NativeEventHandler(ErrorEventHandler);
+                    //    _callbacksErrorEvent = null;
+                    //    _evtErrorEvent.Dispose();
+                    //}
+
+                    // remove device from collection
+                    SerialDeviceController.s_deviceCollection.Remove(_deviceId);
+                }
+
+                NativeDispose();
+
+                _disposedValue = true;
+            }
         }
 
-        /// <summary>
-        /// Gets an Advanced Query Syntax (AQS) string that the app can pass to DeviceInformation.FindAllAsync in order to find a serial device by specifying its port name.
-        /// </summary>
-        /// <param name="portName">The serial port name. For example, "COM1".</param>
-        /// <returns>String formatted as an AQS query.</returns>
-        public static string GetDeviceSelector(String portName)
+        #pragma warning disable 1591
+        ~SerialDevice()
         {
-            throw new NotImplementedException();
+            Dispose(false);
         }
 
-        /// <summary>
-        /// Gets an Advanced Query Syntax (AQS) string that the app can pass to DeviceInformation.FindAllAsync in order to find a specific Serial-to-USB device by specifying it's VID and PID.
-        /// </summary>
-        /// <param name="vendorId">Specifies the vendor identifier for the device as assigned by the USB specification committee. Possible values are 0 through 0xffff.</param>
-        /// <param name="productId">Specifies the product identifier. This value is assigned by the manufacturer and is device-specific. Possible values are 0 through 0xffff.</param>
-        /// <returns>String formatted as an AQS query.</returns>
-        public static string GetDeviceSelectorFromUsbVidPid(UInt16 vendorId, UInt16 productId)
+        public void Dispose()
         {
-            throw new NotImplementedException();
+            lock (_syncLock)
+            {
+                if (!_disposedValue)
+                {
+                    Dispose(true);
+
+                    GC.SuppressFinalize(this);
+                }
+            }
         }
 
-        /// <summary>
-        /// Event handler that is invoked when error occurs on the serial port.
-        /// </summary>
-        /// <remarks>
-        /// This event is used to detect and respond to errors when communicating data through a serial port. When an error condition occurs, the ErrorReceived event handler is invoked and error information is received in an ErrorReceivedEventArgs object. Determine the type of error by retrieving the Error property of the ErrorReceivedEventArgs class. Those property values are defined in the SerialError enumeration.
-        /// </remarks>
-        public event TypedEventHandler<SerialDevice, ErrorReceivedEventArgs> ErrorReceived;
+        #endregion
+
+
+        #region Events
+
+        //// This should be a TypedEventHandler "TypedEventHandler<SerialDevice, ErrorReceivedEventArgs>"
+        //#pragma warning disable 1591
+        //public delegate void ErrorReceivedEventHandler(
+        //    Object sender,
+        //    ErrorReceivedEventArgs e);
+
+
+        ///// <summary>
+        ///// Event handler that is invoked when error occurs on the serial port.
+        ///// </summary>
+        ///// <remarks>
+        ///// This event is used to detect and respond to errors when communicating data through a serial port. When an error condition occurs, the ErrorReceived event handler is invoked and error information is received in an ErrorReceivedEventArgs object. Determine the type of error by retrieving the Error property of the ErrorReceivedEventArgs class. Those property values are defined in the SerialError enumeration.
+        ///// </remarks>
+        //public event ErrorReceivedEventHandler ErrorReceived
+        //{
+        //    add
+        //    {
+        //        lock (_syncLock)
+        //        {
+        //            if (_disposedValue)
+        //            {
+        //                throw new ObjectDisposedException();
+        //            }
+
+        //            var callbacksOld = _callbacksErrorEvent;
+        //            var callbacksNew = (ErrorReceivedEventHandler)Delegate.Combine(callbacksOld, value);
+
+        //            try
+        //            {
+        //                _callbacksErrorEvent = callbacksNew;
+
+        //                if (callbacksOld == null && _callbacksErrorEvent != null)
+        //                {
+        //                    _evtErrorEvent.OnInterrupt += new NativeEventHandler(ErrorEventHandler);
+        //                }
+        //            }
+        //            catch
+        //            {
+        //                _callbacksErrorEvent = callbacksOld;
+        //                throw;
+        //            }
+        //        }
+        //    }
+
+        //    remove
+        //    {
+        //        lock (_syncLock)
+        //        {
+        //            if (_disposedValue)
+        //            {
+        //                throw new ObjectDisposedException();
+        //            }
+
+        //            var callbacksOld = _callbacksErrorEvent;
+        //            var callbacksNew = (ErrorReceivedEventHandler)Delegate.Remove(callbacksOld, value);
+
+        //            try
+        //            {
+        //                _callbacksErrorEvent = callbacksNew;
+
+        //                if (_callbacksErrorEvent == null)
+        //                {
+        //                    _evtErrorEvent.OnInterrupt -= new NativeEventHandler(ErrorEventHandler);
+        //                }
+        //            }
+        //            catch
+        //            {
+        //                _callbacksErrorEvent = callbacksOld;
+
+        //                throw;
+        //            }
+        //        }
+        //    }
+        //}
+
+        //private void ErrorEventHandler(uint evt, uint data2, DateTime timestamp)
+        //{
+        //    _callbacksErrorEvent?.Invoke(this, new ErrorReceivedEventArgs((SerialError)evt));
+        //}
 
         /// <summary>
         /// Event handler that is invoked when the state of a signal or line changes on the serial port.
@@ -260,6 +435,22 @@ namespace Windows.Devices.SerialCommunication
         /// <remarks>
         /// This event is used to detect and respond to changes in the signal state of the serial port. When state changes, the PinChanged event handler is invoked and information is received in a PinChangedEventArgs object. Determine the type of signal by retrieving the PinChange property. Those property values are defined in the SerialPinChange enumeration.
         /// </remarks>
-        public event TypedEventHandler<SerialDevice, PinChangedEventArgs> PinChanged;
+        //public event TypedEventHandler<SerialDevice, PinChangedEventArgs> PinChanged;
+
+        #endregion
+
+
+        #region Native methods
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        private extern void NativeDispose();
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        private extern void NativeInit();
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        internal extern void NativeWrite(byte[] buffer);
+
+        #endregion
     }
 }

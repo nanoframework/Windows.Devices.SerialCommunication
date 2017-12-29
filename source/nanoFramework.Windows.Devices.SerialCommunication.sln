@@ -1,18 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2010
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Windows.Devices.SerialCommunication", "Windows.Devices.SerialCommunication.nfproj", "{47B02EF4-2BDA-4C0F-ADC4-076CD39B9310}"
-EndProject
-Project("{5DD5E4FA-CB73-4610-85AB-557B54E96AA9}") = "Nuget.Windows.Devices.SerialCommunication", "Nuget.Windows.Devices.SerialCommunication\Nuget.Windows.Devices.SerialCommunication.nuproj", "{F7151EC8-F9F2-47F9-BA93-E84580E6E3EE}"
-EndProject
-Project("{5DD5E4FA-CB73-4610-85AB-557B54E96AA9}") = "Nuget.Windows.Devices.SerialCommunication.DELIVERABLES", "Nuget.Windows.Devices.SerialCommunication.DELIVERABLES\Nuget.Windows.Devices.SerialCommunication.DELIVERABLES.nuproj", "{A9A49A89-69C3-4C61-B60F-73DF88664602}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A3EEA097-607D-4297-8D56-8193D770F5F4}"
 	ProjectSection(SolutionItems) = preProject
 		packages.config = packages.config
 	EndProjectSection
+EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Windows.Storage.Streams", "..\..\nflib-Windows.Storage.Streams\source\Windows.Storage.Streams.nfproj", "{05895B03-993A-45C0-A2C7-E347B3023DD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,12 +22,12 @@ Global
 		{47B02EF4-2BDA-4C0F-ADC4-076CD39B9310}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47B02EF4-2BDA-4C0F-ADC4-076CD39B9310}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47B02EF4-2BDA-4C0F-ADC4-076CD39B9310}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F7151EC8-F9F2-47F9-BA93-E84580E6E3EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F7151EC8-F9F2-47F9-BA93-E84580E6E3EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F7151EC8-F9F2-47F9-BA93-E84580E6E3EE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A9A49A89-69C3-4C61-B60F-73DF88664602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9A49A89-69C3-4C61-B60F-73DF88664602}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9A49A89-69C3-4C61-B60F-73DF88664602}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05895B03-993A-45C0-A2C7-E347B3023DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05895B03-993A-45C0-A2C7-E347B3023DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05895B03-993A-45C0-A2C7-E347B3023DD0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{05895B03-993A-45C0-A2C7-E347B3023DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05895B03-993A-45C0-A2C7-E347B3023DD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05895B03-993A-45C0-A2C7-E347B3023DD0}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

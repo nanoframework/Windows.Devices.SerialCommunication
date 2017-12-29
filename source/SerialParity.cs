@@ -11,6 +11,10 @@ namespace Windows.Devices.SerialCommunication
     public enum SerialParity
     {
         /// <summary>
+        /// No parity check occurs.
+        /// </summary>
+        None = 0,
+        /// <summary>
         /// Sets the parity bit so that the total count of data bits set is an even number.
         /// </summary>
         Even,
@@ -18,10 +22,6 @@ namespace Windows.Devices.SerialCommunication
         /// Leaves the parity bit set to 1.
         /// </summary>
         Mark,
-        /// <summary>
-        /// No parity check occurs.
-        /// </summary>
-        None,
         /// <summary>
         /// Sets the parity bit so that the total count of data bits set is an odd number.
         /// </summary>

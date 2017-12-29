@@ -35,12 +35,16 @@
   </ItemGroup>
   <ItemGroup>
     <Dependency Include="nanoFramework.CoreLibrary">
-      <Version>[1.0.0-preview038]</Version>
+      <Version>[1.0.0-preview042]</Version>
     </Dependency>
-  </ItemGroup>
-  <ItemGroup>
     <Dependency Include="nanoFramework.Runtime.Events">
-      <Version>[1.0.0-preview165]</Version>
+      <Version>[1.0.0-preview167]</Version>
+    </Dependency>
+    <Dependency Include="nanoFramework.System.DateTime">
+      <Version>[1.0.0-preview007]</Version>
+    </Dependency>
+    <Dependency Include="nanoFramework.Windows.Storage.Streams">
+      <Version>[1.0.0-preview169]</Version>
     </Dependency>
   </ItemGroup>
   <PropertyGroup Label="Globals">
