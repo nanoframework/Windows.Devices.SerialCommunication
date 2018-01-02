@@ -449,7 +449,7 @@ namespace Windows.Devices.SerialCommunication
         private extern void NativeInit();
 
         [MethodImpl(MethodImplOptions.InternalCall)]
-        internal extern void NativeWrite(byte[] buffer, int length);
+        internal extern void NativeWrite(byte[] buffer);
 
         #endregion
     }
