@@ -21,7 +21,7 @@ namespace Windows.Devices.SerialCommunication
             throw new System.NotImplementedException();
         }
 
-        public void Write(ref byte[] buffer)
+        public void Write(byte[] buffer)
         {
             _serialDevice.NativeWrite(buffer);
         }
