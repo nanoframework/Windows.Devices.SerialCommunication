@@ -23,7 +23,7 @@ namespace Windows.Devices.SerialCommunication
 
         public void Write(ref byte[] buffer)
         {
-            _serialDevice.NativeWrite(buffer);
+            _serialDevice.NativeWrite(buffer, buffer.Length);
         }
     }
 }
