@@ -17,6 +17,8 @@ namespace Windows.Devices.SerialCommunication
         //private ErrorReceivedEventHandler _callbacksErrorEvent = null;
         //private NativeEventDispatcher _evtErrorEvent = null;
 
+        private bool _disposed;
+
         // this is used as the lock object 
         // a lock is required because multiple threads can access the SerialDevice
         private object _syncLock = new object();
@@ -86,7 +88,7 @@ namespace Windows.Devices.SerialCommunication
                 _baudRate = value;
 
                 // need to reconfigure device
-                NativeInit();
+                NativeConfig();
             }
         }
 
@@ -120,7 +122,7 @@ namespace Windows.Devices.SerialCommunication
                 _dataBits = value;
 
                 // need to reconfigure device
-                NativeInit();
+                NativeConfig();
             }
         }
 
@@ -142,7 +144,7 @@ namespace Windows.Devices.SerialCommunication
                 _handshake = value;
 
                 // need to reconfigure device
-                NativeInit();
+                NativeConfig();
             }
         }
 
@@ -187,7 +189,7 @@ namespace Windows.Devices.SerialCommunication
                 _parity = value;
 
                 // need to reconfigure device
-                NativeInit();
+                NativeConfig();
             }
         }
 
@@ -204,7 +206,7 @@ namespace Windows.Devices.SerialCommunication
                 lock (_syncLock)
                 {
                     // check if device has been disposed
-                    if (!_disposedValue) { return _deviceId; }
+                    if (!_disposed) { return _deviceId; }
 
                     throw new ObjectDisposedException();
                 }
@@ -251,7 +253,7 @@ namespace Windows.Devices.SerialCommunication
                 _stopBits = value;
 
                 // need to reconfigure device
-                NativeInit();
+                NativeConfig();
             }
         }
 
@@ -300,11 +302,9 @@ namespace Windows.Devices.SerialCommunication
 
         #region IDisposable Support
 
-        private bool _disposedValue;
-
         private void Dispose(bool disposing)
         {
-            if (!_disposedValue)
+            if (!_disposed)
             {
                 if (disposing)
                 {
@@ -321,7 +321,7 @@ namespace Windows.Devices.SerialCommunication
 
                 NativeDispose();
 
-                _disposedValue = true;
+                _disposed = true;
             }
         }
 
@@ -335,7 +335,7 @@ namespace Windows.Devices.SerialCommunication
         {
             lock (_syncLock)
             {
-                if (!_disposedValue)
+                if (!_disposed)
                 {
                     Dispose(true);
 
@@ -449,7 +449,13 @@ namespace Windows.Devices.SerialCommunication
         private extern void NativeInit();
 
         [MethodImpl(MethodImplOptions.InternalCall)]
+        private extern void NativeConfig();
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
         internal extern void NativeWrite(byte[] buffer);
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        internal extern uint NativeStore();
 
         #endregion
     }
