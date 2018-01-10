@@ -19,6 +19,7 @@ namespace Windows.Devices.SerialCommunication
         public uint Read(IBuffer buffer, uint count, InputStreamOptions options)
         {
             // read from the UART stream
+            // get the Data field from the IBuffer
             return _serialDevice.NativeRead(((ByteBuffer)buffer).Data, (int)options);
         }
     }
