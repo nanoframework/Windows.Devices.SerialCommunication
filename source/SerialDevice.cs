@@ -56,6 +56,7 @@ namespace Windows.Devices.SerialCommunication
                 //_evtErrorEvent = new NativeEventDispatcher("SerialPortErrorEvent", (ulong)_portIndex);
 
                 _outputStream = new SerialDeviceOutputStream(this);
+                _inputStream = new SerialDeviceInputStream(this);
 
                 // add serial device to collection
                 SerialDeviceController.s_deviceCollection.Add(deviceId, this);
@@ -456,6 +457,9 @@ namespace Windows.Devices.SerialCommunication
 
         [MethodImpl(MethodImplOptions.InternalCall)]
         internal extern uint NativeStore();
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        internal extern uint NativeRead(byte[] buffer,int options);
 
         #endregion
     }
