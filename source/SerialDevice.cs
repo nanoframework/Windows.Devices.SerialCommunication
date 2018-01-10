@@ -459,7 +459,7 @@ namespace Windows.Devices.SerialCommunication
         internal extern uint NativeStore();
 
         [MethodImpl(MethodImplOptions.InternalCall)]
-        internal extern uint NativeRead(byte[] buffer,int options);
+        internal extern uint NativeRead(byte[] buffer, int options);
 
         #endregion
     }

@@ -16,10 +16,10 @@ namespace Windows.Devices.SerialCommunication
             _serialDevice = serialDevice;
         }
 
-        public uint Read(byte[] buffer, uint count, InputStreamOptions options)
+        public uint Read(IBuffer buffer, uint count, InputStreamOptions options)
         {
-            // write to UART stream
-            return _serialDevice.NativeRead(buffer, (int)options);
+            // read from the UART stream
+            return _serialDevice.NativeRead(((ByteBuffer)buffer).Data, (int)options);
         }
     }
 }
