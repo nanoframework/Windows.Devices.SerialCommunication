@@ -22,6 +22,7 @@ namespace Windows.Devices.SerialCommunication
         public SerialDeviceOutputStream(SerialDevice serialDevice)
         {
             _serialDevice = serialDevice;
+            _unstoredBufferLength = 0;
         }
 
         public bool Flush()
