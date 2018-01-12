@@ -12,6 +12,13 @@ namespace Windows.Devices.SerialCommunication
     {
         private readonly SerialDevice _serialDevice;
 
+        // this field is updated in the native end
+#pragma warning disable 0649
+        private uint _unstoredBufferLength;
+#pragma warning restore 0649
+
+        public uint UnstoredBufferLength { get => _unstoredBufferLength; }
+
         public SerialDeviceOutputStream(SerialDevice serialDevice)
         {
             _serialDevice = serialDevice;
