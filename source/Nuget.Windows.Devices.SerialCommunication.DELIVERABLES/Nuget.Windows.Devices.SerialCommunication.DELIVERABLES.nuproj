@@ -38,7 +38,7 @@
       <Version>[1.0.0-preview043]</Version>
     </Dependency>
     <Dependency Include="nanoFramework.Windows.Storage.Streams">
-      <Version>[1.0.0-preview178]</Version>
+      <Version>[1.0.0-preview179]</Version>
     </Dependency>
   </ItemGroup>
   <PropertyGroup Label="Globals">
