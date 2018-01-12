@@ -11,6 +11,13 @@ namespace Windows.Devices.SerialCommunication
     {
         private readonly SerialDevice _serialDevice;
 
+        // this field is updated in the native end
+#pragma warning disable 0649
+        private uint _unstoredBufferLength;
+#pragma warning restore 0649
+
+        public uint UnstoredBufferLength { get => _unstoredBufferLength; }
+
         public SerialDeviceInputStream(SerialDevice serialDevice)
         {
             _serialDevice = serialDevice;
@@ -20,7 +27,12 @@ namespace Windows.Devices.SerialCommunication
         {
             // read from the UART stream
             // get the Data field from the IBuffer
-            return _serialDevice.NativeRead(((ByteBuffer)buffer).Data, (int)options);
+            var bytesReceived = _serialDevice.NativeRead(((ByteBuffer)buffer).Data, (int)count, (int)options);
+
+            // need to update this field in the parent
+            _serialDevice._bytesReceived = bytesReceived;
+
+            return bytesReceived;
         }
     }
 }

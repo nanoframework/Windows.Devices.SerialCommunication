@@ -38,7 +38,7 @@ namespace Windows.Devices.SerialCommunication
         private SerialHandshake _handshake = SerialHandshake.None;
         private SerialParity _parity = SerialParity.None;
         private SerialStopBitCount _stopBits = SerialStopBitCount.One;
-        private uint _bytesReceived;
+        internal uint _bytesReceived;
 
         internal SerialDevice(string deviceId)
         {
@@ -459,7 +459,7 @@ namespace Windows.Devices.SerialCommunication
         internal extern uint NativeStore();
 
         [MethodImpl(MethodImplOptions.InternalCall)]
-        internal extern uint NativeRead(byte[] buffer, int options);
+        internal extern uint NativeRead(byte[] buffer, int count, int options);
 
         #endregion
     }
