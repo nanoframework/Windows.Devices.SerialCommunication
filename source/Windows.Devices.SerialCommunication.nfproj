@@ -39,7 +39,7 @@
     <NFMDP_PE_LoadHints Include="packages\nanoFramework.CoreLibrary.1.0.0-preview043\lib\mscorlib.dll">
       <InProject>false</InProject>
     </NFMDP_PE_LoadHints>
-    <NFMDP_PE_LoadHints Include="packages\nanoFramework.Windows.Storage.Streams.1.0.0-preview181\lib\Windows.Storage.Streams.dll">
+    <NFMDP_PE_LoadHints Include="packages\nanoFramework.Windows.Storage.Streams.1.0.0-preview182\lib\Windows.Storage.Streams.dll">
       <InProject>false</InProject>
     </NFMDP_PE_LoadHints>
   </ItemGroup>
@@ -71,7 +71,7 @@
       <SpecificVersion>True</SpecificVersion>
     </Reference>
     <Reference Include="Windows.Storage.Streams, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>packages\nanoFramework.Windows.Storage.Streams.1.0.0-preview181\lib\Windows.Storage.Streams.dll</HintPath>
+      <HintPath>packages\nanoFramework.Windows.Storage.Streams.1.0.0-preview182\lib\Windows.Storage.Streams.dll</HintPath>
       <Private>True</Private>
       <SpecificVersion>True</SpecificVersion>
     </Reference>
