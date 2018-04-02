@@ -35,10 +35,10 @@
   </ItemGroup>
   <ItemGroup>
     <Dependency Include="nanoFramework.CoreLibrary">
-      <Version>[1.0.0-preview043]</Version>
+      <Version>[1.0.0-preview048]</Version>
     </Dependency>
     <Dependency Include="nanoFramework.Windows.Storage.Streams">
-      <Version>[1.0.0-preview183]</Version>
+      <Version>[1.0.0-preview186]</Version>
     </Dependency>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -58,7 +58,7 @@
     <Description>** DON'T REFERENCE THIS PACKAGE ** Not meant for development. This package includes the deliverable artifacts of the Windows.Devices.SerialCommunication assembly for nanoFramework. These are for testing purposes and for updating the native code base of the core library.</Description>
     <ReleaseNotes>
     </ReleaseNotes>
-    <ProjectUrl>https://github.com/nanoframework/nf-class-libraries</ProjectUrl>
+    <ProjectUrl>https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication</ProjectUrl>
     <LicenseUrl>
     </LicenseUrl>
     <Copyright>Copyright (c) 2017 The nanoFramework project contributors</Copyright>
