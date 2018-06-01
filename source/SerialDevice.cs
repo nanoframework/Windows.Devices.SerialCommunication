@@ -31,8 +31,8 @@ namespace Windows.Devices.SerialCommunication
         private readonly IOutputStream _outputStream;
         private readonly IInputStream _inputStream;
 
-        private TimeSpan _readTimeout = TimeSpan.Zero;
-        private TimeSpan _writeTimeout = TimeSpan.Zero;
+        private TimeSpan _readTimeout = TimeSpan.MaxValue;
+        private TimeSpan _writeTimeout = TimeSpan.MaxValue;
         private uint _baudRate = 9600;
         private ushort _dataBits = 8;
         private SerialHandshake _handshake = SerialHandshake.None;
