@@ -5,6 +5,7 @@
 
 using System;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using Windows.Storage.Streams;
 
 namespace Windows.Devices.SerialCommunication
@@ -31,8 +32,8 @@ namespace Windows.Devices.SerialCommunication
         private readonly IOutputStream _outputStream;
         private readonly IInputStream _inputStream;
 
-        private TimeSpan _readTimeout = TimeSpan.Zero;
-        private TimeSpan _writeTimeout = TimeSpan.Zero;
+        private TimeSpan _readTimeout = Timeout.InfiniteTimeSpan;
+        private TimeSpan _writeTimeout = Timeout.InfiniteTimeSpan;
         private uint _baudRate = 9600;
         private ushort _dataBits = 8;
         private SerialHandshake _handshake = SerialHandshake.None;
