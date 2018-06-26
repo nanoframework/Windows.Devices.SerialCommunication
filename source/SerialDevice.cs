@@ -134,6 +134,18 @@ namespace Windows.Devices.SerialCommunication
 
 
         /// <summary>
+        /// Gets the number of bytes of data available in the input stream.
+        /// </summary>
+        /// <value>
+        /// The number of bytes of data in the input stream.
+        /// </value>
+        public extern uint BytesToRead
+        {
+            [MethodImpl(MethodImplOptions.InternalCall)]
+            get;
+        }
+
+        /// <summary>
         /// The number of data bits in each character value that is transmitted or received, and does not include parity bits or stop bits.
         /// </summary>
         /// <value>
