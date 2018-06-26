@@ -3,6 +3,7 @@
 // See LICENSE file in the project root for full license information.
 //
 
+using nanoFramework.Runtime.Events;
 using System;
 using System.Runtime.CompilerServices;
 using System.Threading;
@@ -10,13 +11,20 @@ using Windows.Storage.Streams;
 
 namespace Windows.Devices.SerialCommunication
 {
+    // This should be a TypedEventHandler "EventHandler<SerialDataReceivedEventHandler>"
+    #pragma warning disable 1591
+    public delegate void SerialDataReceivedEventHandler(
+            Object sender,
+            SerialDataReceivedEventArgs e);
+
+    #pragma warning restore 1591
+
     /// <summary>
     /// Represents a serial port. The object provides methods and properties that an app can use to find the port (in the system).
     /// </summary>
     public sealed class SerialDevice : IDisposable
     {
-        //private ErrorReceivedEventHandler _callbacksErrorEvent = null;
-        //private NativeEventDispatcher _evtErrorEvent = null;
+        private static SerialDeviceEventListener s_eventListener = new SerialDeviceEventListener();
 
         private bool _disposed;
 
@@ -28,7 +36,7 @@ namespace Windows.Devices.SerialCommunication
         private bool _opened;
 
         private readonly string _deviceId;
-        private readonly int _portIndex;
+        internal readonly int _portIndex;
         private readonly IOutputStream _outputStream;
         private readonly IInputStream _inputStream;
 
@@ -40,6 +48,9 @@ namespace Windows.Devices.SerialCommunication
         private SerialParity _parity = SerialParity.None;
         private SerialStopBitCount _stopBits = SerialStopBitCount.One;
         internal uint _bytesReceived;
+        private char _watchChar;
+
+        private SerialDataReceivedEventHandler _callbacksDataReceivedEvent = null;
 
         internal SerialDevice(string deviceId)
         {
@@ -54,7 +65,8 @@ namespace Windows.Devices.SerialCommunication
 
                 NativeInit();
 
-                //_evtErrorEvent = new NativeEventDispatcher("SerialPortErrorEvent", (ulong)_portIndex);
+                // add the serial device to the event listener in order to receive the callbacks from the native interrupts
+                s_eventListener.AddSerialDevice(this);
 
                 _outputStream = new SerialDeviceOutputStream(this);
                 _inputStream = new SerialDeviceInputStream(this);
@@ -66,6 +78,24 @@ namespace Windows.Devices.SerialCommunication
             {
                 // this device already exists throw an exception
                 throw new ArgumentException();
+            }
+        }
+
+        /// <summary>
+        /// Sets a character to watch for in the incoming data stream.
+        /// </summary>
+        /// <remarks>
+        /// This property is specific to nanoFramework. There is no equivalent in the UWP API.
+        /// 
+        /// When calling <see cref="DataReader.Load(uint)"/> in the <see cref="InputStream"/> the operation will return immediately if this character is received in the incoming data stream. No matter if the requested quantity of bytes hasn't been read.
+        /// Also if this character is received in the incoming data stream, the <see cref="DataReceived"/> event is fired with it's <see cref="SerialData"/> parameter set to <see cref="SerialData.WatchChar"/>.
+        /// </remarks>
+        public char WatchChar
+        {
+            set
+            {
+                _watchChar = value;
+                NativeSetWatchChar();
             }
         }
 
@@ -317,6 +347,9 @@ namespace Windows.Devices.SerialCommunication
                     //    _evtErrorEvent.Dispose();
                     //}
 
+                    // remove the pin from the event listener
+                    s_eventListener.RemoveSerialDevice(_portIndex);
+
                     // remove device from collection
                     SerialDeviceController.s_deviceCollection.Remove(_deviceId);
                 }
@@ -432,12 +465,88 @@ namespace Windows.Devices.SerialCommunication
         //}
 
         /// <summary>
-        /// Event handler that is invoked when the state of a signal or line changes on the serial port.
+        /// Indicates that data has been received through a <see cref="SerialDevice"/> object.
         /// </summary>
         /// <remarks>
-        /// This event is used to detect and respond to changes in the signal state of the serial port. When state changes, the PinChanged event handler is invoked and information is received in a PinChangedEventArgs object. Determine the type of signal by retrieving the PinChange property. Those property values are defined in the SerialPinChange enumeration.
+        /// This event is specific to nanoFramework. There is no equivalent method in the UWP API.
+        /// 
+        /// Data events can be caused by any of the items in the <see cref="SerialData"/> enumeration. Because the operating system determines whether to raise this event or not, not all parity errors may be reported.
+        /// The <see cref="DataReceived"/> event is also raised if the <see cref="WatchChar"/> character is received, regardless of the number of bytes available in the <see cref="InputStream"/>.
+        /// The <see cref="DataReceived"/> event is not guaranteed to be raised for every byte received. Use the <see cref="BytesReceived"/> property or the available bytes property of the <see cref="InputStream"/> to determine how much data is available to be read from the <see cref="InputStream"/>.
         /// </remarks>
-        //public event TypedEventHandler<SerialDevice, PinChangedEventArgs> PinChanged;
+        public event SerialDataReceivedEventHandler DataReceived
+        {
+            add
+            {
+                lock (_syncLock)
+                {
+                    if (_disposed)
+                    {
+                        throw new ObjectDisposedException();
+                    }
+
+                    SerialDataReceivedEventHandler callbacksOld = _callbacksDataReceivedEvent;
+                    SerialDataReceivedEventHandler callbacksNew = (SerialDataReceivedEventHandler)Delegate.Combine(callbacksOld, value);
+
+                    try
+                    {
+                        _callbacksDataReceivedEvent = callbacksNew;
+                    }
+                    catch
+                    {
+                        _callbacksDataReceivedEvent = callbacksOld;
+
+                        throw;
+                    }
+                }
+            }
+
+            remove
+            {
+                lock (_syncLock)
+                {
+                    if (_disposed)
+                    {
+                        throw new ObjectDisposedException();
+                    }
+
+                    SerialDataReceivedEventHandler callbacksOld = _callbacksDataReceivedEvent;
+                    SerialDataReceivedEventHandler callbacksNew = (SerialDataReceivedEventHandler)Delegate.Remove(callbacksOld, value);
+
+                    try
+                    {
+                        _callbacksDataReceivedEvent = callbacksNew;
+                    }
+                    catch
+                    {
+                        _callbacksDataReceivedEvent = callbacksOld;
+
+                        throw;
+                    }
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Handles internal events and re-dispatches them to the publicly subscribed delegates.
+        /// </summary>
+        /// <param name="eventType">The <see cref="SerialData"/> event type.</param>
+
+        internal void OnSerialDataReceivedInternal(SerialData eventType)
+        {
+            SerialDataReceivedEventHandler callbacks = null;
+
+            lock (_syncLock)
+            {
+                if (!_disposed)
+                {
+                    callbacks = _callbacksDataReceivedEvent;
+                }
+            }
+
+            callbacks?.Invoke(this, new SerialDataReceivedEventArgs(eventType));
+        }
 
         #endregion
 
@@ -462,6 +571,8 @@ namespace Windows.Devices.SerialCommunication
         [MethodImpl(MethodImplOptions.InternalCall)]
         internal extern uint NativeRead(byte[] buffer, int count, int options);
 
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        internal extern void NativeSetWatchChar();
         #endregion
     }
 }

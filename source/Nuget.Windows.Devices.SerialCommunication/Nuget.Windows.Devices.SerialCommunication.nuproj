@@ -37,6 +37,9 @@
     <Dependency Include="nanoFramework.Windows.Storage.Streams">
       <Version>[1.0.0-preview192]</Version>
     </Dependency>
+    <Dependency Include="nanoFramework.Runtime.Events">
+      <Version>[1.0.0-preview178]</Version>
+    </Dependency>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>f7151ec8-f9f2-47f9-ba93-e84580e6e3ee</ProjectGuid>
