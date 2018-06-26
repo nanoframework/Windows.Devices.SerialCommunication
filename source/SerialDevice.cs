@@ -1,4 +1,4 @@
-﻿//
+//
 // Copyright (c) 2017 The nanoFramework project contributors
 // See LICENSE file in the project root for full license information.
 //
@@ -139,6 +139,9 @@ namespace Windows.Devices.SerialCommunication
         /// <value>
         /// The number of bytes of data in the input stream.
         /// </value>
+        /// <remarks>
+        /// This property is specific to nanoFramework. There is no equivalent one in the UWP API.
+        /// </remarks>
         public extern uint BytesToRead
         {
             [MethodImpl(MethodImplOptions.InternalCall)]
