@@ -35,7 +35,7 @@
       <Version>[1.0.0-preview073]</Version>
     </Dependency>
     <Dependency Include="nanoFramework.Windows.Storage.Streams">
-      <Version>[1.0.0-preview201]</Version>
+      <Version>[1.0.0-preview203]</Version>
     </Dependency>
     <Dependency Include="nanoFramework.Runtime.Events">
       <Version>[1.0.0-preview188]</Version>
