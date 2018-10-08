@@ -8,13 +8,11 @@
 - Add BytesToRead property [\#26](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/26)
 - Work on data received event [\#25](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/25)
 - Update Streams package [\#14](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/14)
-- Update Streams Nuget package [\#13](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/13)
 - Work on InputStream [\#10](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/10)
 - Remove ByteBuffer from SerialCommunication [\#9](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/9)
 - Work on InputStream [\#8](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/8)
 - Work on InputStream [\#7](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/7)
 - Work on SerialDeviceOutputStream [\#6](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/6)
-- Update ref to Storage.Streams [\#5](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/5)
 - Add lenght to write native call [\#3](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/3)
 
 **Fixed bugs:**
@@ -25,8 +23,11 @@
 
 **Documentation and other chores:**
 
+- Update 3 NuGet dependencies [\#41](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/41)
 - Bump nanoFramework.Runtime.Events from 1.0.0-preview188 to 1.0.0-preview191 and nanoFramework.Windows.Storage.Streams from 1.0.0-preview201 to 1.0.0-preview203 in /source [\#36](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/36)
 - Bump nanoFramework.CoreLibrary, Windows.Storage.Streams and Runtime.Events in /source [\#31](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/31)
+- Update Streams Nuget package [\#13](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/13)
+- Update ref to Storage.Streams [\#5](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/5)
 - Work on Windows.Devices.SerialCommunication [\#1](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/1)
 
 
