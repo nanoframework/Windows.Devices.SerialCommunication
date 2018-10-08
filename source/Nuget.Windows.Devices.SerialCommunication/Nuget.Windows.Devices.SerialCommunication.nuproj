@@ -10,20 +10,23 @@
       <Platform>AnyCPU</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <PropertyGroup>
+    <GitVersion_NuGetVersionV2 Condition=" '$(GitVersion_NuGetVersionV2)' == '' ">1.0.0-preview001</GitVersion_NuGetVersionV2>
+  </PropertyGroup>
   <ItemGroup>
-    <Content Include="..\bin\$(Configuration)\Windows.Devices.SerialCommunication.dll">
+    <Content Include="..\Windows.Devices.SerialCommunication\bin\$(Configuration)\Windows.Devices.SerialCommunication.dll">
       <Link>lib\Windows.Devices.SerialCommunication.dll</Link>
     </Content>
-    <Content Include="..\bin\$(Configuration)\Windows.Devices.SerialCommunication.pdb">
+    <Content Include="..\Windows.Devices.SerialCommunication\bin\$(Configuration)\Windows.Devices.SerialCommunication.pdb">
       <Link>lib\Windows.Devices.SerialCommunication.pdb</Link>
     </Content>
-    <Content Include="..\bin\$(Configuration)\Windows.Devices.SerialCommunication.pdbx">
+    <Content Include="..\Windows.Devices.SerialCommunication\bin\$(Configuration)\Windows.Devices.SerialCommunication.pdbx">
       <Link>lib\Windows.Devices.SerialCommunication.pdbx</Link>
     </Content>
-    <Content Include="..\bin\$(Configuration)\Windows.Devices.SerialCommunication.pe">
+    <Content Include="..\Windows.Devices.SerialCommunication\bin\$(Configuration)\Windows.Devices.SerialCommunication.pe">
       <Link>lib\Windows.Devices.SerialCommunication.pe</Link>
     </Content>
-    <Content Include="..\bin\$(Configuration)\Windows.Devices.SerialCommunication.xml">
+    <Content Include="..\Windows.Devices.SerialCommunication\bin\$(Configuration)\Windows.Devices.SerialCommunication.xml">
       <Link>lib\Windows.Devices.SerialCommunication.xml</Link>
     </Content>
   </ItemGroup>
@@ -32,13 +35,13 @@
   </ItemGroup>
   <ItemGroup>
     <Dependency Include="nanoFramework.CoreLibrary">
-      <Version>[1.0.0-preview073]</Version>
+      <Version>[1.0.1-preview118]</Version>
     </Dependency>
     <Dependency Include="nanoFramework.Windows.Storage.Streams">
-      <Version>[1.0.0-preview203]</Version>
+      <Version>[1.0.0-preview208]</Version>
     </Dependency>
     <Dependency Include="nanoFramework.Runtime.Events">
-      <Version>[1.0.0-preview191]</Version>
+      <Version>[1.0.0-preview212]</Version>
     </Dependency>
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -22,11 +22,11 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <DelaySign>false</DelaySign>
-  </PropertyGroup>  
+  </PropertyGroup>
   <PropertyGroup>
     <!-- override default options for MetaDataProcessor -->
     <!-- generate PE: TRUE -->
@@ -45,13 +45,13 @@
     <Name>Windows.Devices.SerialCommunication</Name>
   </PropertyGroup>
   <ItemGroup>
-    <NFMDP_PE_LoadHints Include="packages\nanoFramework.CoreLibrary.1.0.0-preview073\lib\mscorlib.dll">
+    <NFMDP_PE_LoadHints Include="..\packages\nanoFramework.CoreLibrary.1.0.1-preview118\lib\mscorlib.dll">
       <InProject>false</InProject>
     </NFMDP_PE_LoadHints>
-    <NFMDP_PE_LoadHints Include="packages\nanoFramework.Windows.Storage.Streams.1.0.0-preview203\lib\Windows.Storage.Streams.dll">
+    <NFMDP_PE_LoadHints Include="..\packages\nanoFramework.Windows.Storage.Streams.1.0.0-preview208\lib\Windows.Storage.Streams.dll">
       <InProject>false</InProject>
     </NFMDP_PE_LoadHints>
-    <NFMDP_PE_LoadHints Include="packages\nanoFramework.Runtime.Events.1.0.0-preview191\lib\nanoFramework.Runtime.Events.dll">
+    <NFMDP_PE_LoadHints Include="..\packages\nanoFramework.Runtime.Events.1.0.0-preview212\lib\nanoFramework.Runtime.Events.dll">
       <InProject>false</InProject>
     </NFMDP_PE_LoadHints>
   </ItemGroup>
@@ -74,24 +74,25 @@
     <Compile Include="SerialStopBitCount.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\key.snk" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="mscorlib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
-      <HintPath>packages\nanoFramework.CoreLibrary.1.0.0-preview073\lib\mscorlib.dll</HintPath>
+    <Reference Include="mscorlib, Version=1.0.1.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\packages\nanoFramework.CoreLibrary.1.0.1-preview118\lib\mscorlib.dll</HintPath>
       <Private>True</Private>
       <SpecificVersion>True</SpecificVersion>
     </Reference>
     <Reference Include="nanoFramework.Runtime.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
-      <HintPath>packages\nanoFramework.Runtime.Events.1.0.0-preview191\lib\nanoFramework.Runtime.Events.dll</HintPath>
+      <HintPath>..\packages\nanoFramework.Runtime.Events.1.0.0-preview212\lib\nanoFramework.Runtime.Events.dll</HintPath>
       <Private>True</Private>
       <SpecificVersion>True</SpecificVersion>
     </Reference>
     <Reference Include="Windows.Storage.Streams, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
-      <HintPath>packages\nanoFramework.Windows.Storage.Streams.1.0.0-preview203\lib\Windows.Storage.Streams.dll</HintPath>
+      <HintPath>..\packages\nanoFramework.Windows.Storage.Streams.1.0.0-preview208\lib\Windows.Storage.Streams.dll</HintPath>
       <Private>True</Private>
       <SpecificVersion>True</SpecificVersion>
     </Reference>
