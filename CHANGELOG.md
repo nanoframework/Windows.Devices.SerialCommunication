@@ -23,6 +23,8 @@
 
 **Documentation and other chores:**
 
+- Update 3 NuGet dependencies [\#43](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/43)
+- Update 3 NuGet dependencies [\#42](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/42)
 - Update 3 NuGet dependencies [\#41](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/41)
 - Bump nanoFramework.Runtime.Events from 1.0.0-preview188 to 1.0.0-preview191 and nanoFramework.Windows.Storage.Streams from 1.0.0-preview201 to 1.0.0-preview203 in /source [\#36](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/36)
 - Bump nanoFramework.CoreLibrary, Windows.Storage.Streams and Runtime.Events in /source [\#31](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/31)
