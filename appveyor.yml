@@ -80,7 +80,7 @@ before_deploy:
       
       .\generate-change-log.ps1
       
-      Push-AppveyorArtifact $env:APPVEYOR_BUILD_FOLDER\push source\Nuget.Windows.Devices.SerialCommunication\bin\Release\nanoFramework.Windows.Devices.SerialCommunication.$env:GitVersion_NuGetVersionV2.nupkg
+      Push-AppveyorArtifact $env:APPVEYOR_BUILD_FOLDER\source\Nuget.Windows.Devices.SerialCommunication\bin\Release\nanoFramework.Windows.Devices.SerialCommunication.$env:GitVersion_NuGetVersionV2.nupkg
 
 # requires APPVEYOR_DISCORD_WEBHOOK_URL enviroment variable set with Discord webhook URL
 on_failure:
@@ -123,9 +123,7 @@ for:
   branches:
     only:
       - /dev.*/
-  
-  skip_branch_with_pr: true
-
+ 
   deploy:
   - provider: GitHub
     tag: v$(GitVersion_NuGetVersionV2)
