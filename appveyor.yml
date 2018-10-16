@@ -9,6 +9,8 @@ image: Visual Studio 2017
 
 skip_tags: false
 
+skip_branch_with_pr: true
+
 test: off
 
 pull_requests:
@@ -77,6 +79,8 @@ before_deploy:
       .\commit-assemblyinfo-changes.ps1
       
       .\generate-change-log.ps1
+      
+      Push-AppveyorArtifact $env:APPVEYOR_BUILD_FOLDER\push source\Nuget.Windows.Devices.SerialCommunication\bin\Release\nanoFramework.Windows.Devices.SerialCommunication.$env:GitVersion_NuGetVersionV2.nupkg
 
 # requires APPVEYOR_DISCORD_WEBHOOK_URL enviroment variable set with Discord webhook URL
 on_failure:
@@ -100,8 +104,7 @@ for:
 
   deploy:
   - provider: NuGet
-    api_key:
-      secure: NSRDXbS8tmzOy4wStGuO3yQMKI8Sk10vF8iQtz9ZDXEnHfwnuDdnXbr/Kno3MMvY
+    api_key: $(NuGetToken)
     skip_symbols: true
     on:
       appveyor_repo_tag: true
@@ -111,9 +114,9 @@ for:
     description: 'Check the [changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/blob/master/CHANGELOG.md)\n\n## Install from NuGet\n\nThe following NuGet packages are available for download from this release\n\n:package: [.NET](https://www.nuget.org/packages/nanoFramework.Windows.Devices.SerialCommunication/$(GitVersion_NuGetVersionV2)) v$(GitVersion_NuGetVersionV2)'
     auth_token:
       secure: DNixoFFE+pGlwyhj7McfZoln42vOmj0iY1iNV9zXEr3y0NpXlOIgL8k5ehzlFM1S
-    artifact: Nuget_Packages
+    artifact:
     draft: true
-    prerelease: true
+    prerelease: false
     force_update: true
 
 -
@@ -130,7 +133,7 @@ for:
     description: 'Check the [changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/blob/$(appveyor_repo_branch)/CHANGELOG.md)\n\n## Install from nanoFramework MyGet development feed\n\nThe following NuGet packages are available for download from this release\n\npackage: [.NET](https://www.myget.org/feed/nanoframework-dev/package/nuget/nanoFramework.Windows.Devices.SerialCommunication/$(GitVersion_NuGetVersionV2)) v$(GitVersion_NuGetVersionV2)'
     auth_token:
       secure: DNixoFFE+pGlwyhj7McfZoln42vOmj0iY1iNV9zXEr3y0NpXlOIgL8k5ehzlFM1S
-    artifact: Nuget_Packages
+    artifact:
     draft: true
     prerelease: true
     force_update: true
@@ -147,18 +150,17 @@ for:
 
   deploy:
   - provider: NuGet
-    api_key:
-      secure: NSRDXbS8tmzOy4wStGuO3yQMKI8Sk10vF8iQtz9ZDXEnHfwnuDdnXbr/Kno3MMvY
+    api_key: $(NuGetToken)
     skip_symbols: true
     on:
       appveyor_repo_tag: true
   - provider: GitHub
     tag: v$(GitVersion_NuGetVersionV2)
     release: nanoFramework Core Library v$(gitversion_semver)
-    description: 'Check the [changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/blob/master/CHANGELOG.md)\n\n## Install from NuGet\n\nThe following NuGet packages are available for download from this release\n\n:package: [.NET](https://www.nuget.org/packages/nanoFramework.Windows.Devices.SerialCommunication/$(GitVersion_NuGetVersionV2)) v$(GitVersion_NuGetVersionV2)'
+    description: 'Check the [changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/blob/$(appveyor_repo_branch)/CHANGELOG.md)\n\n## Install from NuGet\n\nThe following NuGet packages are available for download from this release\n\n:package: [.NET](https://www.nuget.org/packages/nanoFramework.Windows.Devices.SerialCommunication/$(GitVersion_NuGetVersionV2)) v$(GitVersion_NuGetVersionV2)'
     auth_token:
       secure: DNixoFFE+pGlwyhj7McfZoln42vOmj0iY1iNV9zXEr3y0NpXlOIgL8k5ehzlFM1S
-    artifact: Nuget_Packages
+    artifact:
     draft: true
     prerelease: true
     force_update: true
