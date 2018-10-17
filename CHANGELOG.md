@@ -1,7 +1,6 @@
 # Change Log
 
-## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/HEAD)
-
+## [v1.0.0](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.0.0) (2018-10-17)
 **Implemented enhancements:**
 
 - Add strong name key and signing [\#34](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/34)
@@ -23,6 +22,7 @@
 
 **Documentation and other chores:**
 
+- Update 3 NuGet dependencies [\#45](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/45)
 - Update 3 NuGet dependencies [\#43](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/43)
 - Update 3 NuGet dependencies [\#42](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/42)
 - Update 3 NuGet dependencies [\#41](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/41)
