@@ -22,6 +22,7 @@
 
 **Documentation and other chores:**
 
+- Merge 'develop' for Release 1.0.0 [\#46](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/46)
 - Update 3 NuGet dependencies [\#45](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/45)
 - Update 3 NuGet dependencies [\#43](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/43)
 - Update 3 NuGet dependencies [\#42](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/42)
