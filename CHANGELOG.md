@@ -6,6 +6,7 @@
 
 **Documentation and other chores:**
 
+- Bumps nanoFramework.Windows.Storage.Streams from 1.0.0 to 1.0.2-preview-006 [\#50](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/50)
 - Merge back changes from Release 1.0.0 [\#47](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/47)
 
 ## [v1.0.0](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.0.0) (2018-10-17)
