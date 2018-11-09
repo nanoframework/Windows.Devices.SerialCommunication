@@ -55,7 +55,7 @@ namespace Windows.Devices.SerialCommunication
         internal SerialDevice(string deviceId)
         {
             // check if this device is already opened
-            if (!SerialDeviceController.s_deviceCollection.Contains(deviceId))
+            if (!SerialDeviceController.DeviceCollection.Contains(deviceId))
             {
                 _deviceId = deviceId;
 
@@ -72,7 +72,7 @@ namespace Windows.Devices.SerialCommunication
                 _inputStream = new SerialDeviceInputStream(this);
 
                 // add serial device to collection
-                SerialDeviceController.s_deviceCollection.Add(deviceId, this);
+                SerialDeviceController.DeviceCollection.Add(deviceId, this);
             }
             else
             {
@@ -366,7 +366,7 @@ namespace Windows.Devices.SerialCommunication
                     s_eventListener.RemoveSerialDevice(_portIndex);
 
                     // remove device from collection
-                    SerialDeviceController.s_deviceCollection.Remove(_deviceId);
+                    SerialDeviceController.DeviceCollection.Remove(_deviceId);
                 }
 
                 NativeDispose();
