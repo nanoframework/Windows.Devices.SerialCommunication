@@ -15,7 +15,7 @@
 | Component | Build Status | NuGet Package |
 |:-|---|---|
 | Windows.Devices.SerialCommunication | [![Build status](https://ci.appveyor.com/api/projects/status/ucxkrrmy3pde1x34/branch/master?svg=true)](https://ci.appveyor.com/project/nfbot/lib-windows-devices-serialcommunication/branch/master) | [![NuGet](https://img.shields.io/nuget/v/nanoFramework.Windows.Devices.SerialCommunication.svg)](https://www.nuget.org/packages/nanoFramework.Windows.Devices.SerialCommunication/)  |
-| Windows.Devices.SerialCommunication (preview) |[![Build status](https://ci.appveyor.com/api/projects/status/ucxkrrmy3pde1x34/branch/develop?svg=true)](https://ci.appveyor.com/project/nfbot/lib-windows-devices-serialcommunication/branch/develop) | [![MyGet Pre Release](https://img.shields.io/myget/nanoframework-dev/vpre/nanoFramework.Windows.Devices.SerialCommunication.svg)](https://www.myget.org/feed/nanoframework-dev/package/nuget/nanoFramework.Windows.Devices.SerialCommunication) |
+| Windows.Devices.SerialCommunication (preview) [![Build Status](https://dev.azure.com/nanoframework/Windows.Devices.SerialCommunication/_apis/build/status/nanoframework.lib-Windows.Devices.SerialCommunication)](https://dev.azure.com/nanoframework/Windows.Devices.SerialCommunication/_build/latest?definitionId=19) | [![MyGet Pre Release](https://img.shields.io/myget/nanoframework-dev/vpre/nanoFramework.Windows.Devices.SerialCommunication.svg)](https://www.myget.org/feed/nanoframework-dev/package/nuget/nanoFramework.Windows.Devices.SerialCommunication) |
 
 
 ## Feedback and documentation
