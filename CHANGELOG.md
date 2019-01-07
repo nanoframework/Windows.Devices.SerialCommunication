@@ -1,5 +1,34 @@
 # Change Log
 
+## [v1.0.2-preview-017](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.0.2-preview-017) (2018-12-05)
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.0.2-preview-013...v1.0.2-preview-017)
+
+**Documentation and other chores:**
+
+- Update 3 NuGet dependencies [\#54](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/54)
+
+## [v1.0.2-preview-013](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.0.2-preview-013) (2018-11-21)
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.0.2-preview-009...v1.0.2-preview-013)
+
+**Documentation and other chores:**
+
+- Update 2 NuGet dependencies [\#52](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/52)
+
+## [v1.0.2-preview-009](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.0.2-preview-009) (2018-11-09)
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.0.2-preview-004...v1.0.2-preview-009)
+
+**Implemented enhancements:**
+
+- Add lazy initialization to SerialDeviceController [\#51](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/51)
+
+## [v1.0.2-preview-004](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.0.2-preview-004) (2018-11-08)
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.0.0...v1.0.2-preview-004)
+
+**Documentation and other chores:**
+
+- Bumps nanoFramework.Windows.Storage.Streams from 1.0.0 to 1.0.2-preview-006 [\#50](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/50)
+- Merge back changes from Release 1.0.0 [\#47](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/47)
+
 ## [v1.0.0](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.0.0) (2018-10-17)
 **Implemented enhancements:**
 
