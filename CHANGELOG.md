@@ -1,5 +1,13 @@
 # Change Log
 
+## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/HEAD)
+
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.0.2-preview-017...HEAD)
+
+**Documentation and other chores:**
+
+- Release v1.0.3 [\#56](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/56)
+
 ## [v1.0.2-preview-017](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.0.2-preview-017) (2018-12-05)
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.0.2-preview-013...v1.0.2-preview-017)
 
