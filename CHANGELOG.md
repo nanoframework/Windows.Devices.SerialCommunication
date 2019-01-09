@@ -6,6 +6,7 @@
 
 **Documentation and other chores:**
 
+- Update 3 NuGet dependencies [\#59](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/59)
 - Merge back from Release v1.0.3 [\#57](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/57)
 
 ## [v1.0.3](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.0.3) (2019-01-07)
