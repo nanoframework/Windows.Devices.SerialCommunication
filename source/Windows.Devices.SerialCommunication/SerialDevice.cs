@@ -30,7 +30,7 @@ namespace Windows.Devices.SerialCommunication
 
         // this is used as the lock object 
         // a lock is required because multiple threads can access the SerialDevice
-        private object _syncLock = new object();
+        private object _syncLock;
         
         // flag to signal an open serial port
         private bool _opened;
@@ -73,6 +73,8 @@ namespace Windows.Devices.SerialCommunication
 
                 // add serial device to collection
                 SerialDeviceController.DeviceCollection.Add(deviceId, this);
+
+                _syncLock = new object();
             }
             else
             {
