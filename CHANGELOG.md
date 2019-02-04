@@ -1,13 +1,5 @@
 # Change Log
 
-## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/HEAD)
-
-[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.0.5...HEAD)
-
-**Implemented enhancements:**
-
-- Fix static fields [\#62](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/62)
-
 ## [v1.0.5](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.0.5) (2019-01-22)
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.0.4-preview-003...v1.0.5)
 
