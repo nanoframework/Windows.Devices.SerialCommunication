@@ -6,6 +6,7 @@
 
 **Documentation and other chores:**
 
+- Update 2 NuGet dependencies [\#68](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/68)
 - Bumps nanoFramework.Windows.Storage.Streams from 1.0.5-preview-004 to 1.0.5-preview-006 [\#66](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/66)
 - Bumps nanoFramework.Windows.Storage.Streams from 1.0.4 to 1.0.5-preview-004 [\#65](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/65)
 
