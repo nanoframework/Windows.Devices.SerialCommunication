@@ -17,9 +17,9 @@
     <summary>Windows.Devices.SerialCommunication assembly for nanoFramework C# projects</summary>
     <tags>nanoFramework C# csharp netmf netnf Windows.Devices.SerialCommunication</tags>
     <dependencies>
-      <dependency id="nanoFramework.CoreLibrary" version="[1.2.4-preview.1]" />
-      <dependency id="nanoFramework.Windows.Storage.Streams" version="[1.0.7-preview.1]" />
-      <dependency id="nanoFramework.Runtime.Events" version="[1.0.8-preview.1]" />
+      <dependency id="nanoFramework.CoreLibrary" version="[1.2.5-preview.1]" />
+      <dependency id="nanoFramework.Windows.Storage.Streams" version="[1.0.7-preview.5]" />
+      <dependency id="nanoFramework.Runtime.Events" version="[1.0.8-preview.5]" />
     </dependencies>
   </metadata>
   <files>
