@@ -6,6 +6,7 @@
 
 **Documentation and other chores:**
 
+- Update 3 NuGet dependencies [\#84](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/84)
 - Work on native assembly declaration [\#82](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/82) [[Breaking-Change](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/labels/Breaking-Change)]
 
 ## [v1.1.1-preview.14](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.1.1-preview.14) (2019-06-20)
