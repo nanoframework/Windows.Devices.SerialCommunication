@@ -18,9 +18,9 @@
     <tags>
     </tags>
     <dependencies>
-      <dependency id="nanoFramework.CoreLibrary" version="1.2.6-preview.16" />
-      <dependency id="nanoFramework.Windows.Storage.Streams" version="1.0.7-preview.23" />
-      <dependency id="nanoFramework.Runtime.Events" version="1.0.8-preview.20" />
+      <dependency id="nanoFramework.CoreLibrary" version="1.2.6-preview.19" />
+      <dependency id="nanoFramework.Windows.Storage.Streams" version="1.0.7-preview.27" />
+      <dependency id="nanoFramework.Runtime.Events" version="1.1.0-preview.4" />
     </dependencies>
   </metadata>
   <files>
