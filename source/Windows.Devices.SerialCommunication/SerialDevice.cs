@@ -337,6 +337,19 @@ namespace Windows.Devices.SerialCommunication
         {
             return new SerialDevice(deviceId);
         }
+        
+        /// <summary>
+        /// Gets an Advanced Query Syntax (AQS) string that the app can pass to DeviceInformation.FindAll in order to find a specific Serial-to-USB device by specifying it's VID and PID.
+        /// </summary>
+        /// <param name="vendorId">Specifies the vendor identifier for the device as assigned by the USB specification committee. Possible values are 0 through 0xffff.</param>
+        /// <param name="productId">Specifies the product identifier. This value is assigned by the manufacturer and is device-specific. Possible values are 0 through 0xffff.</param>
+        /// <returns>
+        /// String formatted as an AQS query.
+        /// </returns>
+        public static SerialDevice GetDeviceSelectorFromUsbVidPid(UInt16 vendorId, UInt16 productId)
+        {
+            //TODO: implement! 
+        }
 
         /// <summary>
         /// Gets all the available Serial devices available on the system.
