@@ -346,9 +346,10 @@ namespace Windows.Devices.SerialCommunication
         /// <returns>
         /// String formatted as an AQS query.
         /// </returns>
-        public static SerialDevice GetDeviceSelectorFromUsbVidPid(UInt16 vendorId, UInt16 productId)
+        public static string GetDeviceSelectorFromUsbVidPid(UInt16 vendorId, UInt16 productId)
         {
-            //TODO: implement! 
+            //TODO: implement!
+            return "";
         }
 
         /// <summary>
