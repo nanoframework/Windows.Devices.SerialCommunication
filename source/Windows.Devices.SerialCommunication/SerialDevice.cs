@@ -54,14 +54,16 @@ namespace Windows.Devices.SerialCommunication
 
         internal SerialDevice(string deviceId)
         {
+            // the UART name is an ASCII string with the COM port name in format 'COMn'
+            // need to grab 'n' from the string and convert that to the integer value from the ASCII code (do this by subtracting 48 from the char value)
+            _portIndex = (deviceId[3] - 48);
+
             // check if this device is already opened
-            if (!SerialDeviceController.DeviceCollection.Contains(deviceId))
+            var device = FindDevice(_portIndex);
+
+            if (device == null)
             {
                 _deviceId = deviceId;
-
-                // the UART name is an ASCII string with the COM port name in format 'COMn'
-                // need to grab 'n' from the string and convert that to the integer value from the ASCII code (do this by subtracting 48 from the char value)
-                _portIndex = (deviceId[3] - 48);
 
                 NativeInit();
 
@@ -72,7 +74,7 @@ namespace Windows.Devices.SerialCommunication
                 _inputStream = new SerialDeviceInputStream(this);
 
                 // add serial device to collection
-                SerialDeviceController.DeviceCollection.Add(deviceId, this);
+                SerialDeviceController.DeviceCollection.Add(this);
 
                 _syncLock = new object();
             }
@@ -367,8 +369,14 @@ namespace Windows.Devices.SerialCommunication
                     // remove the pin from the event listener
                     s_eventListener.RemoveSerialDevice(_portIndex);
 
-                    // remove device from collection
-                    SerialDeviceController.DeviceCollection.Remove(_deviceId);
+                    // find device
+                    var device = FindDevice(_portIndex);
+
+                    if (device != null)
+                    {
+                        // remove device from collection
+                        SerialDeviceController.DeviceCollection.Remove(device);
+                    }
                 }
 
                 NativeDispose();
@@ -565,10 +573,22 @@ namespace Windows.Devices.SerialCommunication
             callbacks?.Invoke(this, new SerialDataReceivedEventArgs(eventType));
         }
 
-        #endregion
+    #endregion
 
+        internal static SerialDevice FindDevice(int index)
+        {
+            for (int i = 0; i < SerialDeviceController.DeviceCollection.Count; i++)
+            {
+                if (((SerialDevice)SerialDeviceController.DeviceCollection[i])._portIndex == index)
+                {
+                    return (SerialDevice)SerialDeviceController.DeviceCollection[i];
+                }
+            }
 
-        #region Native methods
+            return null;
+        }
+
+    #region Native methods
 
         [MethodImpl(MethodImplOptions.InternalCall)]
         private extern void NativeDispose();
