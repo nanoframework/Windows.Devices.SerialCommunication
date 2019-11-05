@@ -13,7 +13,7 @@ namespace Windows.Devices.SerialCommunication
     internal sealed class SerialDeviceController
     {
         // this is used as the lock object 
-        // a lock is required because multiple threads can access the I2C controller
+        // a lock is required because multiple threads can access the SerialDevice controller
         private static object _syncLock;
 
         // we can have only one instance of the SerialDeviceController
@@ -21,7 +21,7 @@ namespace Windows.Devices.SerialCommunication
         private static SerialDeviceController s_instance;
 
         // backing field for DeviceCollection
-        private static Hashtable s_deviceCollection;
+        private static ArrayList s_deviceCollection;
 
         /// <summary>
         /// Device collection associated with this <see cref="SerialDeviceController"/>.
@@ -29,7 +29,7 @@ namespace Windows.Devices.SerialCommunication
         /// <remarks>
         /// This collection is for internal use only.
         /// </remarks>
-        internal static Hashtable DeviceCollection
+        internal static ArrayList DeviceCollection
         {
             get
             {
@@ -44,7 +44,7 @@ namespace Windows.Devices.SerialCommunication
                     {
                         if (s_deviceCollection == null)
                         {
-                            s_deviceCollection = new Hashtable();
+                            s_deviceCollection = new ArrayList();
                         }
                     }
                 }
