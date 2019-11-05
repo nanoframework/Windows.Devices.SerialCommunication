@@ -20,9 +20,9 @@ This package requires a target with Windows.Devices.SerialCommunication v$native
     <summary>Windows.Devices.SerialCommunication assembly for nanoFramework C# projects</summary>
     <tags>nanoFramework C# csharp netmf netnf Windows.Devices.SerialCommunication</tags>
     <dependencies>
-      <dependency id="nanoFramework.CoreLibrary" version="1.4.1-preview.1" />
-      <dependency id="nanoFramework.Windows.Storage.Streams" version="1.8.0-preview.4" />
-      <dependency id="nanoFramework.Runtime.Events" version="1.4.0-preview.4" />
+      <dependency id="nanoFramework.CoreLibrary" version="1.5.0-preview.1" />
+      <dependency id="nanoFramework.Windows.Storage.Streams" version="1.8.0-preview.5" />
+      <dependency id="nanoFramework.Runtime.Events" version="1.4.1-preview.2" />
     </dependencies>
   </metadata>
   <files>
