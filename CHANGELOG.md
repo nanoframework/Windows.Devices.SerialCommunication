@@ -2,7 +2,15 @@
 
 ## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/HEAD)
 
-[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.2.1-preview.39...HEAD)
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.2.1-preview.43...HEAD)
+
+**Documentation and other chores:**
+
+- Bumps nanoFramework.Windows.Storage.Streams from 1.9.0-preview.6 to 1.9.0 [\#156](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/156)
+
+## [v1.2.1-preview.43](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.2.1-preview.43) (2020-06-12)
+
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.2.1-preview.39...v1.2.1-preview.43)
 
 **Documentation and other chores:**
 
@@ -315,6 +323,7 @@
 
 - Update 3 NuGet dependencies [\#84](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/84)
 - Work on native assembly declaration [\#82](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/82)
+- Bumps nanoFramework.Runtime.Events from 1.0.5-preview-019 to 1.0.6-preview-001 [\#72](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/72)
 
 ## [v1.1.1-preview.14](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.1.1-preview.14) (2019-06-20)
 
@@ -359,10 +368,6 @@
 ## [v1.1.0-preview-024](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.1.0-preview-024) (2019-04-24)
 
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.1.0-preview-023...v1.1.0-preview-024)
-
-**Documentation and other chores:**
-
-- Bumps nanoFramework.Runtime.Events from 1.0.5-preview-019 to 1.0.6-preview-001 [\#72](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/72)
 
 ## [v1.1.0-preview-023](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.1.0-preview-023) (2019-04-23)
 
