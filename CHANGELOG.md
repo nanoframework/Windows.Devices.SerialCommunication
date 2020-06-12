@@ -2,7 +2,15 @@
 
 ## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/HEAD)
 
-[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.2.1-preview.32...HEAD)
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.2.1-preview.37...HEAD)
+
+**Documentation and other chores:**
+
+- Update 2 NuGet dependencies [\#152](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/152)
+
+## [v1.2.1-preview.37](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.2.1-preview.37) (2020-06-11)
+
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.2.1-preview.32...v1.2.1-preview.37)
 
 **Documentation and other chores:**
 
@@ -403,7 +411,6 @@
 **Documentation and other chores:**
 
 - Update 3 NuGet dependencies [\#59](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/59)
-- Update 3 NuGet dependencies [\#42](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/42)
 
 ## [v1.0.3](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.0.3) (2019-01-07)
 
@@ -468,6 +475,7 @@
 
 - Update 3 NuGet dependencies [\#45](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/45)
 - Update 3 NuGet dependencies [\#43](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/43)
+- Update 3 NuGet dependencies [\#42](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/42)
 - Update 3 NuGet dependencies [\#41](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/41)
 - Bump nanoFramework.Runtime.Events from 1.0.0-preview188 to 1.0.0-preview191 and nanoFramework.Windows.Storage.Streams from 1.0.0-preview201 to 1.0.0-preview203 in /source [\#36](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/36)
 - Bump nanoFramework.CoreLibrary, Windows.Storage.Streams and Runtime.Events in /source [\#31](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/31)
