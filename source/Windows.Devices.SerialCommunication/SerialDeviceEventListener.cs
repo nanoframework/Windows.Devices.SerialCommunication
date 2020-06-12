@@ -12,7 +12,7 @@ namespace Windows.Devices.SerialCommunication
     internal class SerialDeviceEventListener : IEventProcessor, IEventListener
     {
         // Map of serial device numbers to SerialDevice objects.
-        private Hashtable _serialDevicesMap = new Hashtable();
+        private ArrayList _serialDevicesMap = new ArrayList();
 
         public SerialDeviceEventListener()
         {
@@ -41,10 +41,7 @@ namespace Windows.Devices.SerialCommunication
 
             lock (_serialDevicesMap)
             {
-                if (_serialDevicesMap.Contains(serialDataEvent.SerialDeviceIndex))
-                {
-                    device = (SerialDevice)_serialDevicesMap[serialDataEvent.SerialDeviceIndex];
-                }
+                device = FindSerialDevice(serialDataEvent.SerialDeviceIndex);
             }
 
             // Avoid calling this under a lock to prevent a potential lock inversion.
@@ -60,7 +57,7 @@ namespace Windows.Devices.SerialCommunication
         {
             lock (_serialDevicesMap)
             {
-                _serialDevicesMap[device._portIndex] = device;
+                _serialDevicesMap.Add(device);
             }
         }
 
@@ -68,11 +65,27 @@ namespace Windows.Devices.SerialCommunication
         {
             lock (_serialDevicesMap)
             {
-                if (_serialDevicesMap.Contains(index))
+                var device = FindSerialDevice(index);
+
+                if (device != null)
                 {
-                    _serialDevicesMap.Remove(index);
+                    _serialDevicesMap.Remove(device);
                 }
             }
         }
+
+        private SerialDevice FindSerialDevice(int number)
+        {
+            for (int i = 0; i < _serialDevicesMap.Count; i++)
+            {
+                if (((SerialDevice)_serialDevicesMap[i])._portIndex == number)
+                {
+                    return (SerialDevice)_serialDevicesMap[i];
+                }
+            }
+
+            return null;
+        }
+
     }
 }
