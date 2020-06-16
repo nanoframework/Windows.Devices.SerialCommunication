@@ -2,6 +2,22 @@
 
 ## [v1.2.1-preview.45](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.2.1-preview.45) (2020-06-12)
 
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.2.1...HEAD)
+
+**Documentation and other chores:**
+
+- Bumps nanoFramework.Runtime.Events from 1.4.2 to 1.8.0 [\#158](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/158)
+
+## [v1.2.1](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.2.1) (2020-06-12)
+
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.2.1-preview.45...v1.2.1)
+
+**Documentation and other chores:**
+
+- Release release-v1.2.1 [\#157](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/157)
+
+## [v1.2.1-preview.45](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.2.1-preview.45) (2020-06-12)
+
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.2.1-preview.43...v1.2.1-preview.45)
 
 **Documentation and other chores:**
@@ -446,10 +462,6 @@
 
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.0.2-preview-009...v1.0.2-preview-013)
 
-**Documentation and other chores:**
-
-- Update 2 NuGet dependencies [\#52](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/52)
-
 ## [v1.0.2-preview-009](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.0.2-preview-009) (2018-11-09)
 
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.0.2-preview-004...v1.0.2-preview-009)
@@ -491,6 +503,7 @@
 
 **Documentation and other chores:**
 
+- Update 2 NuGet dependencies [\#52](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/52)
 - Update 3 NuGet dependencies [\#45](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/45)
 - Update 3 NuGet dependencies [\#43](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/43)
 - Update 3 NuGet dependencies [\#42](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/42)
