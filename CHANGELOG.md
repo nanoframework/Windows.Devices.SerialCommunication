@@ -1,8 +1,8 @@
 # Changelog
 
-## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/HEAD)
+## [v1.3.0-preview.5](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.3.0-preview.5) (2020-06-16)
 
-[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.2.1...HEAD)
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.2.1...v1.3.0-preview.5)
 
 **Documentation and other chores:**
 
@@ -339,14 +339,11 @@
 
 - Update 3 NuGet dependencies [\#84](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/84)
 - Work on native assembly declaration [\#82](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/82)
+- Update 3 NuGet dependencies [\#81](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/81)
 
 ## [v1.1.1-preview.14](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.1.1-preview.14) (2019-06-20)
 
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.1.1-preview.12...v1.1.1-preview.14)
-
-**Documentation and other chores:**
-
-- Update 3 NuGet dependencies [\#81](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/81)
 
 ## [v1.1.1-preview.12](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.1.1-preview.12) (2019-06-14)
 
@@ -462,6 +459,10 @@
 
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.0.2-preview-009...v1.0.2-preview-013)
 
+**Documentation and other chores:**
+
+- Bump nanoFramework.Runtime.Events from 1.0.0-preview188 to 1.0.0-preview191 and nanoFramework.Windows.Storage.Streams from 1.0.0-preview201 to 1.0.0-preview203 in /source [\#36](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/36)
+
 ## [v1.0.2-preview-009](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.0.2-preview-009) (2018-11-09)
 
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.0.2-preview-004...v1.0.2-preview-009)
@@ -469,6 +470,10 @@
 **Implemented enhancements:**
 
 - Add lazy initialization to SerialDeviceController [\#51](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/51)
+
+**Documentation and other chores:**
+
+- Update 2 NuGet dependencies [\#52](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/52)
 
 ## [v1.0.2-preview-004](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.0.2-preview-004) (2018-11-08)
 
@@ -503,12 +508,10 @@
 
 **Documentation and other chores:**
 
-- Update 2 NuGet dependencies [\#52](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/52)
 - Update 3 NuGet dependencies [\#45](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/45)
 - Update 3 NuGet dependencies [\#43](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/43)
 - Update 3 NuGet dependencies [\#42](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/42)
 - Update 3 NuGet dependencies [\#41](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/41)
-- Bump nanoFramework.Runtime.Events from 1.0.0-preview188 to 1.0.0-preview191 and nanoFramework.Windows.Storage.Streams from 1.0.0-preview201 to 1.0.0-preview203 in /source [\#36](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/36)
 - Bump nanoFramework.CoreLibrary, Windows.Storage.Streams and Runtime.Events in /source [\#31](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/31)
 - Update Streams Nuget package [\#13](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/13)
 - Update ref to Storage.Streams [\#5](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/5)
