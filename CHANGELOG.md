@@ -2,6 +2,22 @@
 
 ## [v1.3.1-preview.2](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.3.1-preview.2) (2020-06-16)
 
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.3.0...HEAD)
+
+**Documentation and other chores:**
+
+- Bumps nanoFramework.System.Text from 1.0.0 to 1.1.0 [\#160](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/160)
+
+## [v1.3.0](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.3.0) (2020-06-16)
+
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.3.1-preview.2...v1.3.0)
+
+**Documentation and other chores:**
+
+- Release release-v1.3.0 [\#159](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/159)
+
+## [v1.3.1-preview.2](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.3.1-preview.2) (2020-06-16)
+
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.3.0-preview.5...v1.3.1-preview.2)
 
 ## [v1.3.0-preview.5](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.3.0-preview.5) (2020-06-16)
