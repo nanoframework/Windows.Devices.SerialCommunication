@@ -1,8 +1,16 @@
 # Changelog
 
-## [v1.3.1-preview.2](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.3.1-preview.2) (2020-06-16)
+## [v1.3.2-preview.3](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.3.2-preview.3) (2020-06-16)
 
-[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.3.0...HEAD)
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.3.1-preview.4...v1.3.2-preview.3)
+
+**Documentation and other chores:**
+
+- Bumps nanoFramework.Windows.Storage.Streams from 1.9.0 to 1.10.0-preview.4 [\#161](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/161)
+
+## [v1.3.1-preview.4](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.3.1-preview.4) (2020-06-16)
+
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.3.0...v1.3.1-preview.4)
 
 **Documentation and other chores:**
 
