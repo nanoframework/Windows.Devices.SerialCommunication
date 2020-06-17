@@ -1,6 +1,6 @@
 # Changelog
 
-## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/HEAD)
+## [v1.3.2-preview.3](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.3.2-preview.3) (2020-06-16)
 
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.3.1...HEAD)
 
