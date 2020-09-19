@@ -2,7 +2,23 @@
 
 ## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/HEAD)
 
-[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.3.2...HEAD)
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.3.3-preview.2...HEAD)
+
+**Documentation and other chores:**
+
+- Update dependencies [\#167](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/167)
+
+## [v1.3.3-preview.2](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.3.3-preview.2) (2020-09-19)
+
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.3.3-preview.3...v1.3.3-preview.2)
+
+**Documentation and other chores:**
+
+- Bumps nanoFramework.Runtime.Events from 1.8.1-alpha.18 to 1.8.1-preview.22 [\#166](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/166)
+
+## [v1.3.3-preview.3](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.3.3-preview.3) (2020-07-01)
+
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.3.2...v1.3.3-preview.3)
 
 **Documentation and other chores:**
 
