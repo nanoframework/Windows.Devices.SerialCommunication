@@ -63,6 +63,7 @@
     <Compile Include="SerialDeviceOutputStream.cs" />
     <Compile Include="SerialError.cs" />
     <Compile Include="SerialHandshake.cs" />
+    <Compile Include="SerialMode.cs" />
     <Compile Include="SerialParity.cs" />
     <Compile Include="SerialPinChange.cs" />
     <Compile Include="SerialStopBitCount.cs" />
