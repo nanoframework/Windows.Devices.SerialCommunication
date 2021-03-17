@@ -2,7 +2,15 @@
 
 ## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/HEAD)
 
-[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.3.4-preview.49...HEAD)
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.3.4-preview.51...HEAD)
+
+**Documentation and other chores:**
+
+- Bumps nanoFramework.Windows.Storage.Streams from 1.10.1-preview.24 to 1.10.1-preview.26 [\#201](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/201)
+
+## [v1.3.4-preview.51](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.3.4-preview.51) (2021-03-17)
+
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.3.4-preview.49...v1.3.4-preview.51)
 
 **Documentation and other chores:**
 
@@ -506,7 +514,6 @@
 **Documentation and other chores:**
 
 - Update 3 NuGet dependencies [\#112](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/112)
-- Update 3 NuGet dependencies [\#106](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/106)
 
 ## [v1.2.1-preview.1](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.2.1-preview.1) (2019-11-08)
 
@@ -531,6 +538,10 @@
 ## [v1.2.0-preview.4](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.2.0-preview.4) (2019-10-23)
 
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/compare/v1.2.0-preview.3...v1.2.0-preview.4)
+
+**Documentation and other chores:**
+
+- Update 3 NuGet dependencies [\#106](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/pull/106)
 
 ## [v1.2.0-preview.3](https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication/tree/v1.2.0-preview.3) (2019-10-18)
 
