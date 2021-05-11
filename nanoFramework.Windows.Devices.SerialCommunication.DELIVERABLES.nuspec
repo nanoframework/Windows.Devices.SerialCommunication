@@ -20,7 +20,7 @@
     <dependencies>
       <dependency id="nanoFramework.CoreLibrary" version="1.10.3-preview.20" />
       <dependency id="nanoFramework.Windows.Storage.Streams" version="1.10.1-preview.37" />
-      <dependency id="nanoFramework.Runtime.Events" version="1.9.0-preview.16" />
+      <dependency id="nanoFramework.Runtime.Events" version="1.9.0-preview.22" />
       <dependency id="nanoFramework.System.Text" version="1.1.1-preview.46" />
     </dependencies>
   </metadata>
