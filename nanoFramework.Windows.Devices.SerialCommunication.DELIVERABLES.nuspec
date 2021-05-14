@@ -21,7 +21,7 @@
     </tags>
     <dependencies>
       <dependency id="nanoFramework.CoreLibrary" version="1.10.4-preview.4" />
-      <dependency id="nanoFramework.Windows.Storage.Streams" version="1.10.1-preview.38" />
+      <dependency id="nanoFramework.Windows.Storage.Streams" version="1.11.0-preview.1" />
       <dependency id="nanoFramework.Runtime.Events" version="1.9.0-preview.24" />
       <dependency id="nanoFramework.System.Text" version="1.1.1-preview.47" />
     </dependencies>
@@ -33,7 +33,6 @@
     <file src="Windows.Devices.SerialCommunication\obj\Release\*.strings" target="content\dump\" />
     <file src="Windows.Devices.SerialCommunication\obj\Release\*.resources" target="content\resources\" />
     <file src="Windows.Devices.SerialCommunication\obj\Release\*.il" target="content\disasm\" />
-
-    <file src="assets\nf-logo.png" target="images" />    
+    <file src="assets\nf-logo.png" target="images" />
   </files>
 </package>
