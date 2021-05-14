@@ -16,12 +16,13 @@
     <icon>images\nf-logo.png</icon>
     <repository type="git" url="https://github.com/nanoframework/Windows.Devices.SerialCommunication" commit="$commit$" />
     <copyright>Copyright (c) .NET Foundation and Contributors</copyright>
-    <description>This package includes the Windows.Devices.SerialCommunication assembly for nanoFramework C# projects.&#10;This package requires a target with Windows.Devices.SerialCommunication v$nativeVersion$ (checksum $checksum$).</description>
+    <description>This package includes the Windows.Devices.SerialCommunication assembly for nanoFramework C# projects.
+This package requires a target with Windows.Devices.SerialCommunication v$nativeVersion$ (checksum $checksum$).</description>
     <summary>Windows.Devices.SerialCommunication assembly for nanoFramework C# projects</summary>
     <tags>nanoFramework C# csharp netmf netnf Windows.Devices.SerialCommunication</tags>
     <dependencies>
       <dependency id="nanoFramework.CoreLibrary" version="1.10.4-preview.4" />
-      <dependency id="nanoFramework.Windows.Storage.Streams" version="1.10.1-preview.38" />
+      <dependency id="nanoFramework.Windows.Storage.Streams" version="1.11.0-preview.1" />
       <dependency id="nanoFramework.Runtime.Events" version="1.9.0-preview.24" />
       <dependency id="nanoFramework.System.Text" version="1.1.1-preview.47" />
     </dependencies>
@@ -32,7 +33,6 @@
     <file src="Windows.Devices.SerialCommunication\bin\Release\Windows.Devices.SerialCommunication.pdbx" target="lib\Windows.Devices.SerialCommunication.pdbx" />
     <file src="Windows.Devices.SerialCommunication\bin\Release\Windows.Devices.SerialCommunication.pe" target="lib\Windows.Devices.SerialCommunication.pe" />
     <file src="Windows.Devices.SerialCommunication\bin\Release\Windows.Devices.SerialCommunication.xml" target="lib\Windows.Devices.SerialCommunication.xml" />
-
     <file src="assets\readme.txt" target="" />
     <file src="assets\nf-logo.png" target="images" />
     <file src="LICENSE.md" target="" />
