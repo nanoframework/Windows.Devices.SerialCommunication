@@ -5,13 +5,15 @@
     <version>$version$</version>
     <title>nanoFramework.Windows.Devices.SerialCommunication.DELIVERABLES</title>
     <authors>nanoFramework project contributors</authors>
-    <owners>nanoFramework project contributors</owners>
+    <owners>nanoFramework project contributors,dotnetfoundation</owners>
+    <license type="file">LICENSE.md</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes>
     </releaseNotes>
     <developmentDependency>false</developmentDependency>
-    <projectUrl>https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication</projectUrl>
+    <projectUrl>https://github.com/nanoframework/Windows.Devices.SerialCommunication</projectUrl>
     <iconUrl>https://secure.gravatar.com/avatar/97d0e092247f0716db6d4b47b7d1d1ad</iconUrl>
+    <icon>images\nf-logo.png</icon>
     <copyright>Copyright (c) .NET Foundation and Contributors</copyright>
     <description>** DON'T REFERENCE THIS PACKAGE ** Not meant for development. This package includes the deliverable artifacts of the Windows.Devices.SerialCommunication assembly for nanoFramework. These are for testing purposes and for updating the native code base of the library.</description>
     <summary>Windows.Devices.SerialCommunication.DELIVERABLES is not meant for development.</summary>
@@ -31,5 +33,7 @@
     <file src="Windows.Devices.SerialCommunication\obj\Release\*.strings" target="content\dump\" />
     <file src="Windows.Devices.SerialCommunication\obj\Release\*.resources" target="content\resources\" />
     <file src="Windows.Devices.SerialCommunication\obj\Release\*.il" target="content\disasm\" />
+
+    <file src="assets\nf-logo.png" target="images" />    
   </files>
 </package>
