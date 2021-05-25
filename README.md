@@ -4,6 +4,10 @@
 
 -----
 
+## ⚠️ This library is now deprecated and has been replaced with [System.IO.Ports](https://github.com/nanoframework/System.IO.Ports). Please use that one instead. ⚠️
+
+-----
+
 ### Welcome to the **nanoFramework** Windows.Devices.SerialCommunication Library repository!
 
 ## Build status
