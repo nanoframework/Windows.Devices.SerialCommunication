@@ -1,8 +1,8 @@
 trigger:
   branches:
-    include: [master, develop, "release-*" ]
+    include: [main, develop, "release-*" ]
   paths:
-    exclude: ["*.md", .gitignore]
+    exclude: [README.md, LICENSE.md, NuGet.Config, .github_changelog_generator, .gitignore]
   tags:
     include: ["v*"]
 
@@ -17,15 +17,15 @@ resources:
       endpoint: nanoframework
 
 pool:
-  vmImage: 'VS2017-Win2016'
+  vmImage: 'windows-2019'
 
 variables:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
-  solution: '**/source/*.sln'
+  solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   nugetPackageName: 'nanoFramework.Windows.Devices.SerialCommunication'
-  repoName: 'lib-Windows.Devices.SerialCommunication'
+  repoName: 'Windows.Devices.SerialCommunication'
 
 steps:
 

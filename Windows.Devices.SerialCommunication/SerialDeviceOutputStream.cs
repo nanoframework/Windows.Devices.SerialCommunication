@@ -1,9 +1,8 @@
 ﻿//
-// Copyright (c) 2017 The nanoFramework project contributors
+// Copyright (c) .NET Foundation and Contributors
 // See LICENSE file in the project root for full license information.
 //
 
-using System;
 using Windows.Storage.Streams;
 
 namespace Windows.Devices.SerialCommunication
@@ -17,7 +16,16 @@ namespace Windows.Devices.SerialCommunication
         private uint _unstoredBufferLength;
 #pragma warning restore 0649
 
-        public uint UnstoredBufferLength { get => _unstoredBufferLength; }
+        /// <inheritdoc/>
+        public uint UnstoredBufferLength 
+        { 
+            get => _unstoredBufferLength;
+
+            set
+            {
+                _unstoredBufferLength = value;
+            }
+        }
 
         public SerialDeviceOutputStream(SerialDevice serialDevice)
         {

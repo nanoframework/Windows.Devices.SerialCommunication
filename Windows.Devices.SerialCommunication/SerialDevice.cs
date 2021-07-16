@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2017 The nanoFramework project contributors
+// Copyright (c) .NET Foundation and Contributors
 // See LICENSE file in the project root for full license information.
 //
 
@@ -49,6 +49,7 @@ namespace Windows.Devices.SerialCommunication
         private SerialStopBitCount _stopBits = SerialStopBitCount.One;
         internal uint _bytesReceived;
         private char _watchChar;
+        private SerialMode _mode = SerialMode.Normal;
 
         private SerialDataReceivedEventHandler _callbacksDataReceivedEvent = null;
 
@@ -193,6 +194,22 @@ namespace Windows.Devices.SerialCommunication
             set
             {
                 _handshake = value;
+
+                // need to reconfigure device
+                NativeConfig();
+            }
+        }
+
+        public SerialMode Mode
+        {
+            get
+            {
+                return _mode;
+            }
+
+            set
+            {
+                _mode = value;
 
                 // need to reconfigure device
                 NativeConfig();

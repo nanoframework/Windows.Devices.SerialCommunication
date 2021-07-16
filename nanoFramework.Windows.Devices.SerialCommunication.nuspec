@@ -5,25 +5,26 @@
     <version>$version$</version>
     <title>nanoFramework.Windows.Devices.SerialCommunication</title>
     <authors>nanoFramework project contributors</authors>
-    <owners>nanoFramework project contributors</owners>
+    <owners>nanoFramework project contributors,dotnetfoundation</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <license type="expression">Apache-2.0</license>
+    <license type="file">LICENSE.md</license>
     <releaseNotes>
     </releaseNotes>
     <developmentDependency>false</developmentDependency>
-    <projectUrl>https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication</projectUrl>
+    <projectUrl>https://github.com/nanoframework/Windows.Devices.SerialCommunication</projectUrl>
     <iconUrl>https://secure.gravatar.com/avatar/97d0e092247f0716db6d4b47b7d1d1ad</iconUrl>
-    <repository type="git" url="https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication" commit="$commit$" />
-    <copyright>Copyright (c) 2018 The nanoFramework project contributors</copyright>
+    <icon>images\nf-logo.png</icon>
+    <repository type="git" url="https://github.com/nanoframework/Windows.Devices.SerialCommunication" commit="$commit$" />
+    <copyright>Copyright (c) .NET Foundation and Contributors</copyright>
     <description>This package includes the Windows.Devices.SerialCommunication assembly for nanoFramework C# projects.
-This package requires a target with Windows.Devices.SerialCommunication v$nativeVersion$.</description>
+This package requires a target with Windows.Devices.SerialCommunication v$nativeVersion$ (checksum $checksum$).</description>
     <summary>Windows.Devices.SerialCommunication assembly for nanoFramework C# projects</summary>
     <tags>nanoFramework C# csharp netmf netnf Windows.Devices.SerialCommunication</tags>
     <dependencies>
-      <dependency id="nanoFramework.CoreLibrary" version="1.7.3" />
-      <dependency id="nanoFramework.Windows.Storage.Streams" version="1.10.0" />
-      <dependency id="nanoFramework.Runtime.Events" version="1.8.0" />
-      <dependency id="nanoFramework.System.Text" version="1.1.0" />
+      <dependency id="nanoFramework.CoreLibrary" version="1.10.5" />
+      <dependency id="nanoFramework.Windows.Storage.Streams" version="1.12.2" />
+      <dependency id="nanoFramework.Runtime.Events" version="1.9.1" />
+      <dependency id="nanoFramework.System.Text" version="1.1.1" />
     </dependencies>
   </metadata>
   <files>
@@ -32,7 +33,8 @@ This package requires a target with Windows.Devices.SerialCommunication v$native
     <file src="Windows.Devices.SerialCommunication\bin\Release\Windows.Devices.SerialCommunication.pdbx" target="lib\Windows.Devices.SerialCommunication.pdbx" />
     <file src="Windows.Devices.SerialCommunication\bin\Release\Windows.Devices.SerialCommunication.pe" target="lib\Windows.Devices.SerialCommunication.pe" />
     <file src="Windows.Devices.SerialCommunication\bin\Release\Windows.Devices.SerialCommunication.xml" target="lib\Windows.Devices.SerialCommunication.xml" />
-    <!-- readme -->
-    <file src="readme.txt" target="readme.txt" />
+    <file src="assets\readme.txt" target="" />
+    <file src="assets\nf-logo.png" target="images" />
+    <file src="LICENSE.md" target="" />
   </files>
 </package>
