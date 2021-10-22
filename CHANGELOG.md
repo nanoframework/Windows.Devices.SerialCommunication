@@ -2,7 +2,15 @@
 
 ## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/Windows.Devices.SerialCommunication/tree/HEAD)
 
-[Full Changelog](https://github.com/nanoframework/Windows.Devices.SerialCommunication/compare/v1.3.4...HEAD)
+[Full Changelog](https://github.com/nanoframework/Windows.Devices.SerialCommunication/compare/v1.3.5-preview.5...HEAD)
+
+**Documentation and other chores:**
+
+- Bumps nanoFramework.Runtime.Events from 1.9.2-preview.5 to 1.9.2-preview.8 [\#250](https://github.com/nanoframework/Windows.Devices.SerialCommunication/pull/250)
+
+## [v1.3.5-preview.5](https://github.com/nanoframework/Windows.Devices.SerialCommunication/tree/v1.3.5-preview.5) (2021-10-17)
+
+[Full Changelog](https://github.com/nanoframework/Windows.Devices.SerialCommunication/compare/v1.3.4...v1.3.5-preview.5)
 
 **Documentation and other chores:**
 
