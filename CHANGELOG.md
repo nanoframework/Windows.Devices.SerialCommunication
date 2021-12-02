@@ -2,7 +2,15 @@
 
 ## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/Windows.Devices.SerialCommunication/tree/HEAD)
 
-[Full Changelog](https://github.com/nanoframework/Windows.Devices.SerialCommunication/compare/v1.3.5-preview.11...HEAD)
+[Full Changelog](https://github.com/nanoframework/Windows.Devices.SerialCommunication/compare/v1.3.5-preview.13...HEAD)
+
+**Documentation and other chores:**
+
+- Bumps nanoFramework.System.Text from 1.1.2-preview.9 to 1.1.2-preview.12 [\#255](https://github.com/nanoframework/Windows.Devices.SerialCommunication/pull/255)
+
+## [v1.3.5-preview.13](https://github.com/nanoframework/Windows.Devices.SerialCommunication/tree/v1.3.5-preview.13) (2021-12-01)
+
+[Full Changelog](https://github.com/nanoframework/Windows.Devices.SerialCommunication/compare/v1.3.5-preview.11...v1.3.5-preview.13)
 
 **Documentation and other chores:**
 
