@@ -2,7 +2,15 @@
 
 ## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/Windows.Devices.SerialCommunication/tree/HEAD)
 
-[Full Changelog](https://github.com/nanoframework/Windows.Devices.SerialCommunication/compare/v1.3.5-preview.13...HEAD)
+[Full Changelog](https://github.com/nanoframework/Windows.Devices.SerialCommunication/compare/v1.3.5-preview.15...HEAD)
+
+**Documentation and other chores:**
+
+- Bumps nanoFramework.Windows.Storage.Streams from 1.12.3-preview.8 to 1.12.3-preview.10 [\#256](https://github.com/nanoframework/Windows.Devices.SerialCommunication/pull/256)
+
+## [v1.3.5-preview.15](https://github.com/nanoframework/Windows.Devices.SerialCommunication/tree/v1.3.5-preview.15) (2021-12-02)
+
+[Full Changelog](https://github.com/nanoframework/Windows.Devices.SerialCommunication/compare/v1.3.5-preview.13...v1.3.5-preview.15)
 
 **Documentation and other chores:**
 
