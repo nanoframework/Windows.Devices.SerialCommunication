@@ -22,7 +22,7 @@ This package requires a target with Windows.Devices.SerialCommunication v$native
     <tags>nanoFramework C# csharp netmf netnf Windows.Devices.SerialCommunication</tags>
     <dependencies>
       <dependency id="nanoFramework.CoreLibrary" version="1.11.7" />
-      <dependency id="nanoFramework.Windows.Storage.Streams" version="1.12.3" />
+      <dependency id="nanoFramework.Windows.Storage.Streams" version="1.12.4-preview.3" />
       <dependency id="nanoFramework.Runtime.Events" version="1.10.0-preview.1" />
       <dependency id="nanoFramework.System.Text" version="1.1.3-preview.4" />
     </dependencies>
