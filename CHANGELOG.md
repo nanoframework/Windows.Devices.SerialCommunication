@@ -2,7 +2,15 @@
 
 ## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/Windows.Devices.SerialCommunication/tree/HEAD)
 
-[Full Changelog](https://github.com/nanoframework/Windows.Devices.SerialCommunication/compare/v1.3.6-preview.17...HEAD)
+[Full Changelog](https://github.com/nanoframework/Windows.Devices.SerialCommunication/compare/v1.3.6-preview.19...HEAD)
+
+**Documentation and other chores:**
+
+- Update 1 NuGet dependencies [\#279](https://github.com/nanoframework/Windows.Devices.SerialCommunication/pull/279)
+
+## [v1.3.6-preview.19](https://github.com/nanoframework/Windows.Devices.SerialCommunication/tree/v1.3.6-preview.19) (2022-01-28)
+
+[Full Changelog](https://github.com/nanoframework/Windows.Devices.SerialCommunication/compare/v1.3.6-preview.17...v1.3.6-preview.19)
 
 **Documentation and other chores:**
 
