@@ -4,8 +4,7 @@
     <id>nanoFramework.Windows.Devices.SerialCommunication.DELIVERABLES</id>
     <version>$version$</version>
     <title>nanoFramework.Windows.Devices.SerialCommunication.DELIVERABLES</title>
-    <authors>nanoFramework project contributors</authors>
-    <owners>nanoFramework project contributors,dotnetfoundation</owners>
+    <authors>nanoframework</authors>
     <license type="file">LICENSE.md</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes>
