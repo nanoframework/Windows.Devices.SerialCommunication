@@ -12,7 +12,6 @@
 | Component | Build Status | NuGet Package |
 |:-|---|---|
 | Windows.Devices.SerialCommunication | [![Build Status](https://dev.azure.com/nanoframework/Windows.Devices.SerialCommunication/_apis/build/status/Windows.Devices.SerialCommunication?repoName=nanoframework%2FWindows.Devices.SerialCommunication&branchName=main)](https://dev.azure.com/nanoframework/Windows.Devices.SerialCommunication/_build/latest?definitionId=19&repoName=nanoframework%2FWindows.Devices.SerialCommunication&branchName=main) | [![NuGet](https://img.shields.io/nuget/v/nanoFramework.Windows.Devices.SerialCommunication.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/nanoFramework.Windows.Devices.SerialCommunication/) |
-| Windows.Devices.SerialCommunication (preview) | [![Build Status](https://dev.azure.com/nanoframework/Windows.Devices.SerialCommunication/_apis/build/status/Windows.Devices.SerialCommunication?repoName=nanoframework%2FWindows.Devices.SerialCommunication&branchName=develop)](https://dev.azure.com/nanoframework/Windows.Devices.SerialCommunication/_build/latest?definitionId=19&repoName=nanoframework%2FWindows.Devices.SerialCommunication&branchName=develop) | [![NuGet](https://img.shields.io/nuget/vpre/nanoFramework.Windows.Devices.SerialCommunication.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/nanoFramework.Windows.Devices.SerialCommunication/) |
 
 ## Feedback and documentation
 
